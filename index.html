@@ -3,105 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İmdetek Teknoloji | Alarko Elite Enterprise</title>
+    <title>İmdetek Teknoloji | Alarko Carrier Master Servis</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --deep-black: #010204;
-            --gold-leaf: #c49b6d;
-            --off-white: #e2e8f0;
-            --glass-white: rgba(255, 255, 255, 0.03);
-            --border-line: rgba(196, 155, 109, 0.2);
+            --night: #010409;
+            --gold: #c49b6d;
+            --silver: #cbd5e1;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(196, 155, 109, 0.2);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; font-family: 'Montserrat', sans-serif; background: var(--deep-black); color: #fff; overflow-x: hidden; }
+        html { scroll-behavior: smooth; font-family: 'Montserrat', sans-serif; background: var(--night); color: #fff; overflow-x: hidden; }
 
-        /* LOADING & REVEAL */
+        /* REVEAL ON SCROLL */
         .reveal { opacity: 0; transform: translateY(40px); transition: 1s all ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* MEGA NAVIGATION */
+        /* NAVIGATION */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
-            padding: 25px 8%; background: rgba(1, 2, 4, 0.95);
-            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-line);
+            padding: 20px 8%; background: rgba(1, 4, 9, 0.9);
+            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
         }
         .nav-inner { display: flex; justify-content: space-between; align-items: center; }
-        .logo-box { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-        .logo-square { width: 50px; height: 50px; background: var(--gold-leaf); border-radius: 4px; color: #000; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 24px; }
-        .nav-links a { color: #fff; text-decoration: none; margin-left: 35px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        .nav-links a:hover { color: var(--gold-leaf); }
+        .logo-box { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+        .logo-sq { width: 45px; height: 45px; background: var(--gold); border-radius: 6px; color: #000; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 20px; }
+        .nav-links a { color: #fff; text-decoration: none; margin-left: 30px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
 
-        /* FULLSCREEN SLIDER HERO */
+        /* HERO SLIDER */
         .hero { height: 100vh; position: relative; overflow: hidden; }
         .slide { position: absolute; inset: 0; opacity: 0; transition: 1.5s; background-size: cover; background-position: center; display: flex; align-items: center; padding: 0 8%; }
         .slide.active { opacity: 1; }
-        .slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #010204 35%, transparent 100%); }
-        .hero-content { position: relative; z-index: 10; max-width: 900px; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(45px, 7vw, 95px); line-height: 1; margin-bottom: 30px; }
-        .hero span { color: var(--gold-leaf); }
-        .hero p { font-size: 20px; color: var(--off-white); margin-bottom: 45px; font-weight: 300; max-width: 600px; }
+        .slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--night) 35%, transparent 100%); }
+        .hero-content { position: relative; z-index: 10; max-width: 850px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(40px, 7vw, 90px); line-height: 1.1; margin-bottom: 25px; }
+        .hero span { color: var(--gold); }
 
-        /* INTERACTIVE OPTIONS BUTTONS (BUTON SEÇENEKLERİ) */
-        .options-section { padding: 100px 8%; background: #04060a; }
-        .opt-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 60px; flex-wrap: wrap; }
-        .tab-btn { padding: 15px 35px; border: 1px solid var(--border-line); background: transparent; color: #fff; cursor: pointer; transition: 0.4s; font-weight: 700; border-radius: 2px; font-size: 12px; letter-spacing: 2px; }
-        .tab-btn.active, .tab-btn:hover { background: var(--gold-leaf); color: #000; border-color: var(--gold-leaf); }
-
-        .service-display { display: none; gap: 50px; align-items: center; animation: fadeIn 0.5s ease; }
-        .service-display.active { display: flex; }
-        .display-img { flex: 1; height: 450px; border-radius: 5px; background-size: cover; background-position: center; border: 1px solid var(--border-line); }
-        .display-text { flex: 1; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* STATS SAYAÇLAR */
-        .stats-strip { display: flex; justify-content: space-around; padding: 80px 8%; background: var(--gold-leaf); color: #000; }
+        /* SAYAÇLAR (ANIMATED STATS) */
+        .stats-section { display: flex; justify-content: space-around; padding: 100px 8%; background: #02060c; border-bottom: 1px solid var(--border); }
         .stat-item { text-align: center; }
-        .stat-num { font-size: 55px; font-weight: 800; display: block; }
-        .stat-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+        .stat-num { font-size: 60px; font-weight: 800; color: var(--gold); display: block; }
+        .stat-label { font-size: 12px; letter-spacing: 2px; color: var(--silver); text-transform: uppercase; }
 
-        /* HİKAYEMİZ & BİZ KİMİZ */
-        .about-grid { padding: 150px 8%; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
-        .about-content h2 { font-size: 45px; margin-bottom: 30px; font-family: 'Playfair Display'; }
-        .about-content p { font-size: 17px; line-height: 1.8; color: var(--off-white); margin-bottom: 25px; font-weight: 300; }
+        /* INTERACTIVE OPTIONS AREA */
+        .options-box { padding: 120px 8%; }
+        .tabs { display: flex; gap: 10px; justify-content: center; margin-bottom: 60px; }
+        .tab-btn { padding: 15px 35px; border: 1px solid var(--border); background: transparent; color: #fff; cursor: pointer; font-weight: 700; transition: 0.4s; border-radius: 4px; }
+        .tab-btn.active, .tab-btn:hover { background: var(--gold); color: #000; }
+        
+        .tab-content { display: none; gap: 50px; align-items: center; animation: fadeIn 0.8s ease; }
+        .tab-content.active { display: flex; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .tab-img { flex: 1; height: 450px; border-radius: 15px; background-size: cover; background-position: center; border: 1px solid var(--border); }
+        .tab-text { flex: 1; }
 
-        /* REFERANS LOGO BANDI */
-        .logos { padding: 60px 0; background: #010204; border-y: 1px solid var(--border-line); overflow: hidden; }
-        .logo-track { display: flex; width: 200%; animation: scrollLogos 30s linear infinite; }
-        .logo-item { flex: 0 0 250px; text-align: center; font-size: 20px; font-weight: 700; color: #444; }
-        @keyframes scrollLogos { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        /* MÜŞTERİ YORUMLARI (TESTIMONIALS) */
+        .reviews { padding: 120px 8%; background: #02060c; }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .rev-card { background: var(--glass); padding: 40px; border-radius: 20px; border: 1px solid var(--border); position: relative; }
+        .stars { color: var(--gold); margin-bottom: 15px; font-size: 20px; }
 
-        /* SSS AKORDİYON */
-        .faq-box { padding: 100px 20%; background: #04060a; }
-        .faq-item { border-bottom: 1px solid var(--border-line); padding: 30px 0; cursor: pointer; }
-        .faq-q { display: flex; justify-content: space-between; font-size: 18px; font-weight: 600; }
-        .faq-a { max-height: 0; overflow: hidden; transition: 0.4s; color: var(--off-white); font-size: 15px; margin-top: 15px; }
-        .faq-item.open .faq-a { max-height: 200px; }
+        /* MAP */
+        .map-box { height: 450px; width: 100%; filter: grayscale(1) invert(0.9) contrast(1.2); border-y: 1px solid var(--border); }
 
         /* FLOATING ACTION */
-        .float-panel { position: fixed; bottom: 40px; right: 40px; z-index: 10000; display: flex; flex-direction: column; gap: 20px; }
-        .float-btn { width: 70px; height: 70px; border-radius: 10px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); transition: 0.3s; }
-        .wa { background: #25d366; color: #fff; text-decoration: none; }
-        .ai { background: var(--gold-leaf); color: #000; }
+        .f-actions { position: fixed; bottom: 35px; right: 35px; z-index: 10000; display: flex; flex-direction: column; gap: 15px; }
+        .f-btn { width: 65px; height: 65px; border-radius: 12px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: 0.3s; }
+        .wa-btn { background: #25d366; color: #fff; text-decoration: none; }
+        .ai-btn { background: var(--gold); color: #000; }
 
-        footer { padding: 100px 8% 50px; border-top: 1px solid var(--border-line); text-align: center; }
+        /* CHAT WINDOW */
+        #chatWin {
+            position: fixed; bottom: 120px; right: 35px; width: 380px; height: 500px;
+            background: #010409; border: 1px solid var(--border); border-radius: 20px;
+            display: none; flex-direction: column; z-index: 9999; box-shadow: 0 25px 50px rgba(0,0,0,1); overflow: hidden;
+        }
+        #chatWin.open { display: flex; }
 
-        @media (max-width: 900px) { .about-grid, .service-display { grid-template-columns: 1fr; flex-direction: column; } .hero h1 { font-size: 50px; } }
+        footer { padding: 80px 8% 40px; text-align: center; border-top: 1px solid var(--border); }
+
+        @media (max-width: 900px) { .tab-content { flex-direction: column; } .stats-section { flex-wrap: wrap; gap: 40px; } }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="nav-inner">
-        <a href="#" class="logo-box">
-            <div class="logo-square">İT</div>
-            <div style="font-weight: 700; letter-spacing: 2px;">İMDETEK TEKNOLOJİ</div>
-        </a>
+        <a href="#" class="logo-box"><div class="logo-sq">İT</div><div style="font-weight: 700; letter-spacing: 1px;">İMDETEK TEKNOLOJİ</div></a>
         <div class="nav-links">
-            <a href="#about">Kurumsal</a>
-            <a href="#services">Hizmet Alanları</a>
-            <a href="#faq">Soru Cevap</a>
+            <a href="#hizmetler">Hizmetler</a>
+            <a href="#yorumlar">Müşteri Yorumları</a>
             <a href="tel:05075589208">İletişim</a>
         </div>
     </div>
@@ -110,139 +104,157 @@
 <div class="hero">
     <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?q=80&w=1600');">
         <div class="hero-content">
-            <h1>Premium <span>İklimlendirme</span> Mühendisliği</h1>
-            <p>Alarko yetkili servis uzmanlığıyla, Bursa'nın en prestijli projelerine yüksek segment teknik çözümler sunuyoruz.</p>
-            <a href="#services" class="tab-btn active" style="text-decoration: none;">ÇÖZÜMLERİ KEŞFEDİN</a>
+            <h1>Alarko Carrier <span>Elite</span> Çözümleri</h1>
+            <p>Bursa'da yüksek mühendislik standartlarıyla iklimlendirme ve güneş enerjisi sistemlerinde 15 yıllık güven.</p>
+            <a href="#hizmetler" class="tab-btn active" style="text-decoration: none;">ÇÖZÜMLERİ İNCELEYİN</a>
         </div>
     </div>
-    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1600');">
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1631548231167-9aa923fe9991?q=80&w=1600');">
         <div class="hero-content">
-            <h1>Geleceğin <span>Enerjisine</span> Geçiş Yapın</h1>
-            <p>Güneş enerji sistemlerinde sürdürülebilirlik ve estetiği birleştiriyoruz.</p>
+            <h1>Konforun <span>Garantisi</span> Biziz</h1>
+            <p>Isıtma ve soğutma sistemlerinde orijinal parça garantili yetkili servis hizmeti.</p>
         </div>
     </div>
 </div>
 
-<div class="logos">
-    <div class="logo-track">
-        <div class="logo-item">MSK GROUP</div><div class="logo-item">OYAK RENAULT</div><div class="logo-item">KAPLANLAR</div><div class="logo-item">WARMHAUSE</div>
-        <div class="logo-item">ERKURT HOLDİNG</div><div class="logo-item">FORM FLEX</div><div class="logo-item">COŞKUNÖZ</div><div class="logo-item">İNCİ HOLDİNG</div>
-        <div class="logo-item">MSK GROUP</div><div class="logo-item">OYAK RENAULT</div><div class="logo-item">KAPLANLAR</div><div class="logo-item">WARMHAUSE</div>
-    </div>
-</div>
-
-<section class="about-grid reveal" id="about">
-    <div class="about-content">
-        <span style="color: var(--gold-leaf); font-weight: 700; letter-spacing: 3px;">MİRAS VE VİZYON</span>
-        <h2>15 Yıllık Kurumsal <br>Güvenin Adresi</h2>
-        <p>İmdetek Teknoloji, Bursa Osmangazi merkezli, Alarko Holding'in yetkili servis disipliniyle hizmet veren bir teknoloji firmasıdır. Binlerce konut ve endüstriyel tesiste iklimlendirme standartlarını belirliyoruz.</p>
-        <p>Hız, şeffaflık ve orijinal parça garantisi, bizim taviz vermediğimiz kurumsal anayasamızdır.</p>
-    </div>
-    <div style="background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800') center/cover; height: 500px; border-radius: 4px; border: 1px solid var(--border-line);"></div>
+<section class="stats-section reveal">
+    <div class="stat-item"><span class="stat-num" data-target="15">0</span><span class="stat-label">Yıllık Tecrübe</span></div>
+    <div class="stat-item"><span class="stat-num" data-target="5000">0</span><span class="stat-label">Mutlu Müşteri</span></div>
+    <div class="stat-item"><span class="stat-num" data-target="100">0</span><span class="stat-label">% Orijinal Parça</span></div>
 </section>
 
-<section class="options-section reveal" id="services">
-    <div class="opt-tabs">
-        <button class="tab-btn active" onclick="openService(event, 'kombi')">KOMBİ SİSTEMLERİ</button>
-        <button class="tab-btn" onclick="openService(event, 'klima')">KLİMA ÇÖZÜMLERİ</button>
-        <button class="tab-btn" onclick="openService(event, 'ges')">GÜNEŞ ENERJİSİ</button>
-        <button class="tab-btn" onclick="openService(event, 'pompa')">SU POMPALARI</button>
+<section class="options-box reveal" id="hizmetler">
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'kombi')">ALARKOKOMBİ</button>
+        <button class="tab-btn" onclick="openTab(event, 'klima')">ALARKOKLİMA</button>
+        <button class="tab-btn" onclick="openTab(event, 'enerji')">GÜNEŞENERJİSİ</button>
     </div>
 
-    <div id="kombi" class="service-display active">
-        <div class="display-img" style="background-image: url('https://images.unsplash.com/photo-1585129049162-71c2604fbb89?q=80&w=800');"></div>
-        <div class="display-text">
-            <h3>Elite Kombi Mühendisliği</h3>
-            <p style="margin: 20px 0; color: var(--off-white);">Alarko yetkili servis ağının en donanımlı ekipleriyle, cihazınızın ömrünü uzatıyor ve enerji tasarrufunu %30'a kadar artırıyoruz.</p>
-            <ul style="list-style: none; color: var(--gold-leaf); font-weight: 600;">
-                <li>+ Yıllık Periyodik Bakım</li>
-                <li>+ 1 Yıl Parça Garantili Onarım</li>
-                <li>+ Akıllı Termostat Entegrasyonu</li>
+    <div id="kombi" class="tab-content active">
+        <div class="tab-img" style="background-image: url('https://images.unsplash.com/photo-1585129049162-71c2604fbb89?q=80&w=800');"></div>
+        <div class="tab-text">
+            <h2 style="text-align: left;">Alarko <span>Kombi</span> Mühendisliği</h2>
+            <p style="color: var(--silver); margin: 25px 0;">Yeni nesil yoğuşmalı kombilerde %30 yakıt tasarrufu sağlayan yıllık bakım ve Alarko Holding onaylı teknik servis desteği.</p>
+            <ul style="list-style: none; line-height: 2;">
+                <li>✓ Yıllık Periyodik Bakım</li>
+                <li>✓ 1 Yıl Parça Garantili Onarım</li>
+                <li>✓ Petek Temizliği & Verimlilik Ayarı</li>
             </ul>
         </div>
     </div>
 
-    <div id="klima" class="service-display">
-        <div class="display-img" style="background-image: url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800');"></div>
-        <div class="display-text">
-            <h3>Gelişmiş Soğutma Çözümleri</h3>
-            <p style="margin: 20px 0; color: var(--off-white);">Flair ve VRF serisi klimalarda uzman montaj ve hijyenik bakım servisimizle mevsimleri kontrolünüz altına alın.</p>
+    <div id="klima" class="tab-content">
+        <div class="tab-img" style="background-image: url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800');"></div>
+        <div class="tab-text">
+            <h2 style="text-align: left;">Alarko <span>Flair</span> Klima Serisi</h2>
+            <p style="color: var(--silver); margin: 25px 0;">A+++ enerji verimliliğine sahip klima montajı, gaz dolumu ve hijyenik iç ünite dezenfeksiyonu.</p>
+        </div>
+    </div>
+
+    <div id="enerji" class="tab-content">
+        <div class="tab-img" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800');"></div>
+        <div class="tab-text">
+            <h2 style="text-align: left;">Yenilenebilir <span>Güneş</span> Enerjisi</h2>
+            <p style="color: var(--silver); margin: 25px 0;">Bursa geneli müstakil ev ve işletmeler için GES panel kurulumu ve performans optimizasyonu.</p>
         </div>
     </div>
 </section>
 
-<div class="stats-strip reveal">
-    <div class="stat-item"><span class="stat-num">15+</span><span class="stat-label">YIL TECRÜBE</span></div>
-    <div class="stat-item"><span class="stat-num">5k+</span><span class="stat-label">MUTLU MÜŞTERİ</span></div>
-    <div class="stat-item"><span class="stat-num">2st</span><span class="stat-label">MÜDAHALE HIZI</span></div>
-</div>
-
-<section class="faq-box reveal" id="faq">
-    <h2 style="text-align: center; margin-bottom: 50px;">Kurumsal <span>Soru Cevap</span></h2>
-    <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q">Hangi bölgelere hizmet sağlıyorsunuz? <span>+</span></div>
-        <div class="faq-a">Osmangazi merkezli firmamız Nilüfer, Yıldırım, Mudanya ve Gürsu bölgelerine aynı gün mobil ekip yönlendirmektedir.</div>
-    </div>
-    <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q">Yetkili servis olmanın avantajı nedir? <span>+</span></div>
-        <div class="faq-a">Cihazınızın garantisi bozulmaz, %100 orijinal yedek parça kullanılır ve fabrika eğitimli teknisyenler müdahale eder.</div>
+<section class="reviews reveal" id="yorumlar">
+    <h2 style="margin-bottom: 60px;">Bursa Bize <span>Güveniyor</span></h2>
+    <div class="review-grid">
+        <div class="rev-card">
+            <div class="stars">★★★★★</div>
+            <p>"Kombi arızası için aradık, 1 saat içinde Osmangazi'deki yerimize geldiler. Alarko yetkili servis farkı belli oluyor."</p>
+            <h4 style="margin-top: 20px;">Ahmet Karaca</h4>
+        </div>
+        <div class="rev-card">
+            <div class="stars">★★★★★</div>
+            <p>"Güneş paneli kurulumu yaptık, faturalarımız inanılmaz düştü. İmdetek ekibi çok profesyonel çalıştı."</p>
+            <h4 style="margin-top: 20px;">Selin Mert</h4>
+        </div>
     </div>
 </section>
 
-<div class="float-panel">
-    <a href="https://wa.me/905075589208" class="float-btn wa">W</a>
-    <button class="float-btn ai" onclick="toggleChat()">🤖</button>
+<div class="map-box reveal">
+    <iframe width="100%" height="100%" frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=BURAYA_API_KEY_GEREKMEZ_AMA_STANDART_EMBED_YETERLI&q=Dikkaldırım+Mahallesi+Osmangazi+Bursa" style="border:0" allowfullscreen></iframe>
 </div>
 
-<div id="chatBox" style="position:fixed; bottom:130px; right:40px; width:380px; height:500px; background:#010204; border:1px solid var(--border-line); border-radius:10px; display:none; flex-direction:column; z-index:10000;">
-    <div style="background:var(--gold-leaf); padding:20px; color:#000; font-weight:800; display:flex; justify-content:space-between;">İMDETEK ELITE AI <span onclick="toggleChat()" style="cursor:pointer">X</span></div>
-    <div id="msgs" style="flex:1; padding:20px; overflow-y:auto; font-size:14px;">Merhaba, İmdetek kurumsal asistanına hoş geldiniz. Hangi hizmetimizle ilgileniyorsunuz?</div>
-    <div style="padding:20px; border-top:1px solid var(--border-line); display:flex;">
-        <input type="text" id="chatIn" placeholder="Mesajınızı yazın..." style="flex:1; background:transparent; border:none; color:#fff; outline:none;" onkeypress="if(event.key==='Enter') sendMsg()">
+<div class="f-actions">
+    <a href="https://wa.me/905075589208" class="f-btn wa-btn" target="_blank">W</a>
+    <button class="f-btn ai-btn" onclick="toggleChat()">🤖</button>
+</div>
+
+<div id="chatWin">
+    <div style="background: var(--gold); padding: 20px; color: #000; font-weight: 800; display: flex; justify-content: space-between; align-items: center;">İMDETEK ELITE AI <span onclick="toggleChat()" style="cursor:pointer">X</span></div>
+    <div id="msgs" style="flex: 1; padding: 20px; overflow-y: auto; font-size: 14px; line-height: 1.6;">Merhaba! Bursa Alarko Yetkili Servisi olarak size nasıl yardımcı olabilirim?</div>
+    <div style="padding: 20px; border-top: 1px solid var(--border); display: flex;">
+        <input type="text" id="chatIn" placeholder="Sorunuzu buraya yazın..." style="flex: 1; background: transparent; border: none; color: #fff; outline: none;" onkeypress="if(event.key==='Enter') sendChat()">
+        <button onclick="sendChat()" style="background: none; border: none; color: var(--gold); font-weight: bold; cursor: pointer;">></button>
     </div>
 </div>
 
 <footer>
-    <div class="logo-square" style="margin: 0 auto 30px;">İT</div>
     <p style="letter-spacing: 5px; font-weight: 700;">İMDETEK TEKNOLOJİ</p>
-    <p style="color: #444; margin-top: 20px; font-size: 13px;">Dikkaldırım Mh. 1 Lale Sk. No:14 Osmangazi / Bursa</p>
-    <p style="color: #444; font-size: 11px; margin-top: 10px;">© 2026 Alarko Yetkili Servis Ağı Üyesidir.</p>
+    <p style="color: var(--silver); margin-top: 15px; font-size: 13px;">Dikkaldırım Mh. 1 Lale Sk. No:14 Osmangazi / Bursa</p>
+    <p style="color: #444; font-size: 11px; margin-top: 15px;">© 2026 Alarko Carrier Teknik Servis Ağı Üyesidir.</p>
 </footer>
 
 <script>
-    // SLIDER
+    // SLIDER MOTORU
     let cur = 0; const slides = document.querySelectorAll('.slide');
     setInterval(() => { slides[cur].classList.remove('active'); cur = (cur+1)%slides.length; slides[cur].classList.add('active'); }, 5000);
 
-    // TAB SYSTEM (BUTON SEÇENEKLERİ)
-    function openService(evt, serviceName) {
-        let contents = document.getElementsByClassName("service-display");
+    // TAB MOTORU (SEÇENEKLER)
+    function openTab(evt, name) {
+        let contents = document.getElementsByClassName("tab-content");
         for (let i = 0; i < contents.length; i++) contents[i].style.display = "none";
-        let tabs = document.getElementsByClassName("tab-btn");
-        for (let i = 0; i < tabs.length; i++) tabs[i].className = tabs[i].className.replace(" active", "");
-        document.getElementById(serviceName).style.display = "flex";
+        let buttons = document.getElementsByClassName("tab-btn");
+        for (let i = 0; i < buttons.length; i++) buttons[i].className = buttons[i].className.replace(" active", "");
+        document.getElementById(name).style.display = "flex";
         evt.currentTarget.className += " active";
     }
 
-    // REVEAL
-    window.addEventListener('scroll', () => {
-        document.querySelectorAll('.reveal').forEach(el => {
-            if(el.getBoundingClientRect().top < window.innerHeight - 150) el.classList.add('active');
+    // SAYAÇ VE REVEAL MOTORU
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                if (entry.target.classList.contains('stats-section')) startStats();
+            }
         });
-    });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-    // CHAT
-    function toggleChat() { const c = document.getElementById('chatBox'); c.style.display = c.style.display === 'flex' ? 'none' : 'flex'; }
-    function sendMsg() {
-        const i = document.getElementById('chatIn'); if(!i.value) return;
-        const m = document.getElementById('msgs');
-        m.innerHTML += `<div style="text-align:right; margin:10px 0; color:var(--gold-leaf)"><b>Talep:</b> ${i.value}</div>`;
-        const t = i.value.toLowerCase(); i.value = '';
+    function startStats() {
+        document.querySelectorAll('.stat-num').forEach(num => {
+            const target = +num.getAttribute('data-target');
+            let count = 0;
+            const inc = target / 50;
+            const update = () => {
+                count += inc;
+                if (count < target) { num.innerText = Math.ceil(count); setTimeout(update, 20); }
+                else num.innerText = target + (target == 100 ? "%" : "+");
+            };
+            update();
+        });
+    }
+
+    // CHATBOT MOTORU (GELİŞMİŞ ZEKA)
+    function toggleChat() { document.getElementById('chatWin').classList.toggle('open'); }
+    function sendChat() {
+        const inp = document.getElementById('chatIn'); if(!inp.value) return;
+        const msgs = document.getElementById('msgs');
+        msgs.innerHTML += `<div style="text-align:right; margin:15px 0; color:var(--gold)"><b>Siz:</b> ${inp.value}</div>`;
+        const val = inp.value.toLowerCase(); inp.value = '';
         setTimeout(() => {
-            let r = "0507 558 92 08 üzerinden kurumsal servis kaydı oluşturabilirsiniz.";
-            if(t.includes('kombi')) r = "Kombi bakım paketlerimiz ve Alarko parça garantimiz hakkında bilgi ister misiniz?";
-            m.innerHTML += `<div style="margin:10px 0;"><b>Asistan:</b> ${r}</div>`;
-            m.scrollTop = m.scrollHeight;
+            let reply = "Detaylı bilgi ve randevu için 0507 558 92 08 numaralı WhatsApp hattımızdan bize ulaşabilirsiniz.";
+            if(val.includes('kombi')) reply = "Alarko kombileriniz için yıllık bakım ve yetkili parça garantili servis sunuyoruz. Filtre temizliği de dahil! 🔥";
+            if(val.includes('klima')) reply = "Klima montajı ve gaz dolumunda Bursa'nın her yerine aynı gün servis sağlıyoruz. ❄️";
+            if(val.includes('nerede') || val.includes('adres')) reply = "Merkezimiz Bursa Osmangazi Dikkaldırım mahallesindedir (Lale Sokak No:14). Mobil ekiplerimiz her ilçede aktif! 📍";
+            if(val.includes('kim') || val.includes('firma')) reply = "İmdetek Teknoloji, Alarko Carrier güvencesiyle Bursa'da hizmet veren uzman bir teknik servis firmasıdır.";
+            msgs.innerHTML += `<div style="margin:15px 0; border-left: 2px solid var(--gold); padding-left: 10px;"><b>Asistan:</b> ${reply}</div>`;
+            msgs.scrollTop = msgs.scrollHeight;
         }, 600);
     }
 </script>
