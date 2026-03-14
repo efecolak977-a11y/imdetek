@@ -3,114 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İmdetek Teknoloji | Alarko Carrier Yetkili Bayi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>İmdetek Teknoloji | Alarko Carrier Elite Bayi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        :root { --navy: #020b18; --gold: #c49b6d; --white: #ffffff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { background: var(--navy); color: var(--white); overflow-x: hidden; }
+        :root {
+            --deep: #01040a;
+            --gold: #c49b6d;
+            --silver: #cbd5e1;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(196, 155, 109, 0.25);
+        }
 
-        /* NAVBAR */
-        nav { 
-            position: fixed; top: 0; width: 100%; z-index: 1000; 
-            background: rgba(2, 11, 24, 0.95); padding: 20px 8%; 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-family: 'Montserrat', sans-serif; background: var(--deep); color: #fff; overflow-x: hidden; }
+
+        /* REVEAL ANIMASYONU */
+        .reveal { opacity: 0; transform: translateY(50px); transition: 1s all ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* PREMIUM NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 25px 8%; background: rgba(1, 4, 10, 0.95);
+            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
             display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid rgba(196, 155, 109, 0.3);
         }
-        .logo { font-weight: 700; font-size: 20px; color: #fff; text-decoration: none; }
-        .logo span { color: var(--gold); }
+        .logo-group { display: flex; align-items: center; gap: 15px; text-decoration: none; color: #fff; }
+        .logo-box { width: 50px; height: 50px; background: var(--gold); border-radius: 5px; color: #000; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 24px; }
+        .nav-links a { color: #fff; text-decoration: none; margin-left: 35px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
 
-        /* SLIDER SECTION */
-        .hero { height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; padding: 0 8%; }
-        .slide { 
-            position: absolute; inset: 0; opacity: 0; transition: 1s; 
-            background-size: cover; background-position: center; 
-        }
+        /* MEGA SLIDER HERO */
+        .hero { height: 100vh; position: relative; overflow: hidden; }
+        .slide { position: absolute; inset: 0; opacity: 0; transition: 1.5s ease-in-out; background-size: cover; background-position: center; display: flex; align-items: center; padding: 0 8%; }
         .slide.active { opacity: 1; }
-        .slide::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
-        
-        .hero-content { position: relative; z-index: 10; max-width: 800px; }
-        .hero h1 { font-size: clamp(35px, 6vw, 70px); margin-bottom: 20px; }
-        .hero h1 span { color: var(--gold); }
-        .btn { 
-            display: inline-block; background: var(--gold); color: #000; 
-            padding: 15px 35px; border-radius: 5px; text-decoration: none; 
-            font-weight: 700; margin-top: 20px; 
-        }
+        .slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--deep) 25%, transparent 100%); }
+        .hero-content { position: relative; z-index: 10; max-width: 900px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(45px, 7vw, 95px); line-height: 1; margin-bottom: 30px; }
+        .hero span { color: var(--gold); background: linear-gradient(to right, var(--gold), #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 20px; color: var(--silver); margin-bottom: 40px; font-weight: 300; }
 
-        /* CHATBOT */
-        #chat-win {
-            position: fixed; bottom: 100px; right: 30px; width: 320px; height: 400px;
-            background: #0a1424; border: 1px solid var(--gold); border-radius: 15px;
-            display: none; flex-direction: column; z-index: 2000; overflow: hidden;
-        }
-        #chat-win.open { display: flex; }
-        .chat-header { background: var(--gold); padding: 15px; color: #000; font-weight: 700; display: flex; justify-content: space-between; }
-        .chat-body { flex: 1; padding: 15px; overflow-y: auto; font-size: 14px; }
-        .chat-input { padding: 10px; border-top: 1px solid #1a2a44; display: flex; }
-        .chat-input input { flex: 1; background: transparent; border: none; color: #fff; outline: none; }
+        /* DİNAMİK SAYAÇLAR */
+        .stats { display: flex; justify-content: space-around; padding: 100px 8%; background: #02070f; border-bottom: 1px solid var(--border); }
+        .stat-item { text-align: center; }
+        .stat-num { font-size: 65px; font-weight: 800; color: var(--gold); display: block; }
+        .stat-label { font-size: 12px; letter-spacing: 3px; color: #666; text-transform: uppercase; margin-top: 10px; }
 
-        /* FLOATING BUTTONS */
-        .float-btn {
-            position: fixed; bottom: 30px; right: 30px; z-index: 2001;
-            width: 60px; height: 60px; background: var(--gold); border-radius: 15px;
-            border: none; cursor: pointer; font-size: 25px;
-        }
-    </style>
-</head>
-<body>
-
-<nav>
-    <a href="#" class="logo">İMDETEK <span>TEKNOLOJİ</span></a>
-    <div style="font-size: 11px; font-weight: 700; color: var(--gold);">ALARKO YETKİLİ BAYİ</div>
-</nav>
-
-<div class="hero">
-    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?q=80&w=1600');"></div>
-    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1631548231167-9aa923fe9991?q=80&w=1600');"></div>
-    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1585129049162-71c2604fbb89?q=80&w=1600');"></div>
-
-    <div class="hero-content">
-        <h1>Alarko Carrier <span>Konforu</span></h1>
-        <p>Bursa'nın her yerine Alarko yetkili bayi güvencesiyle servis ve kurulum sağlıyoruz.</p>
-        <a href="tel:05075589208" class="btn">HEMEN ARA</a>
-    </div>
-</div>
-
-<button class="float-btn" onclick="toggleChat()">🤖</button>
-
-<div id="chat-win">
-    <div class="chat-header">İmdetek Asistan <span onclick="toggleChat()" style="cursor:pointer">X</span></div>
-    <div class="chat-body" id="msgs">Merhaba! Alarko ürünleri, adresimiz veya çalışma saatlerimiz hakkında bilgi alabilirsiniz.</div>
-    <div class="chat-input">
-        <input type="text" id="chatIn" placeholder="Sorunuzu yazın..." onkeypress="if(event.key==='Enter') sendChat()">
-        <button onclick="sendChat()" style="background:none; border:none; color:var(--gold); font-weight:700; cursor:pointer; padding-left:10px;">></button>
-    </div>
-</div>
-
-<script>
-    // SLIDER MOTORU
-    let cur = 0;
-    const slides = document.querySelectorAll('.slide');
-    setInterval(() => {
-        slides[cur].classList.remove('active');
-        cur = (cur + 1) % slides.length;
-        slides[cur].classList.add('active');
-    }, 4000);
-
-    // CHATBOT MOTORU
-    function toggleChat() { document.getElementById('chat-win').classList.toggle('open'); }
-    function sendChat() {
-        const inp = document.getElementById('chatIn');
-        const m = document.getElementById('msgs');
-        if(!inp.value) return;
-        m.innerHTML += `<div style="text-align:right; color:var(--gold); margin-top:10px;">${inp.value}</div>`;
-        const t = inp.value.toLowerCase();
-        inp.value = '';
-
-        setTimeout(() => {
-            let r = "Size yardımcı olabilmemiz için 0507 558 92 08 numaralı hattımızı arayabilirsiniz.";
-            if(t.includes('adres') || t.includes('nerede')) r = "Merkezimiz Osmangazi Dikkaldırım'dadır. (Lale Sk. No:14) 📍";
-            if(t.includes('saat') || t.includes('açık')) r = "Hafta içi 09:00 - 19:00 arası hizmet vermekteyiz. ⏰";
-            if(t.includes('kombi')) r = "Alarko yoğuşmalı kombilerde yetkili bayi satış ve servis desteğimiz mevcuttur. 🔥";
-            if(t.
+        /* INTERAKTİF ÜRÜN VİTRİNİ (BUTON SEÇENEKLERİ) */
+        .showcase { padding: 120px 8%; }
+        .tab-nav { display: flex; justify-content: center; gap: 20px; margin-bottom: 80px; flex-wrap: wrap; }
+        .tab-btn { padding: 18px 45px;
