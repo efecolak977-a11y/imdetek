@@ -1,125 +1,1039 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İmdetek Teknoloji | Alarko Carrier Yetkili Bayi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root { --navy: #020b18; --gold: #c49b6d; --white: #ffffff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { background: var(--navy); color: var(--white); overflow-x: hidden; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İmdetek Teknoloji | Alarko Bursa Yetkili Servis</title>
+<meta name="description" content="Bursa'da Alarko yetkili servis güvencesiyle kombi, klima, güneş enerjisi ve su pompası servisi. Osmangazi, Nilüfer, Yıldırım ve tüm Bursa ilçelerine hizmet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#05101f;--navy2:#0a1a2e;--navy3:#0f2340;
+  --blue:#1466d4;--blue2:#1a7cf0;
+  --gold:#f0a500;
+  --white:#fff;--gray:#8b9ab3;--light:#e8eef7;
+  --card:rgba(255,255,255,.05);--border:rgba(255,255,255,.09);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:#fff;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px}
 
-        /* NAVBAR */
-        nav { 
-            position: fixed; top: 0; width: 100%; z-index: 1000; 
-            background: rgba(2, 11, 24, 0.95); padding: 20px 8%; 
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid rgba(196, 155, 109, 0.3);
-        }
-        .logo { font-weight: 700; font-size: 20px; color: #fff; text-decoration: none; }
-        .logo span { color: var(--gold); }
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:0 5%;transition:.4s}
+nav.sc{background:rgba(5,16,31,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.ni{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;cursor:pointer}
+.li{width:38px;height:38px;background:linear-gradient(135deg,var(--blue),var(--blue2));border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;flex-shrink:0}
+.lt{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.15}
+.ls{font-size:9px;color:var(--gold);letter-spacing:2px;text-transform:uppercase}
+.nl{display:flex;align-items:center;gap:2px}
+.nl a{color:rgba(255,255,255,.72);text-decoration:none;padding:7px 15px;border-radius:8px;font-size:14px;font-weight:500;transition:.2s;cursor:pointer}
+.nl a:hover,.nl a.act{color:#fff;background:rgba(255,255,255,.09)}
+.nr{display:flex;align-items:center;gap:10px}
+.lbtn{background:var(--card);border:1px solid var(--border);color:#fff;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:.2s;font-family:'DM Sans',sans-serif}
+.lbtn:hover{border-color:var(--blue)}
+.cta{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;padding:9px 20px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:.25s;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap}
+.cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(20,102,212,.4)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.ham span{width:23px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+.mob{display:none;position:fixed;inset:0;background:var(--navy);z-index:899;padding:90px 6% 40px;flex-direction:column;gap:6px}
+.mob.op{display:flex}
+.mob a{color:#fff;text-decoration:none;font-size:19px;font-weight:600;padding:15px 0;border-bottom:1px solid var(--border);cursor:pointer}
 
-        /* SLIDER SECTION */
-        .hero { height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; padding: 0 8%; }
-        .slide { 
-            position: absolute; inset: 0; opacity: 0; transition: 1s; 
-            background-size: cover; background-position: center; 
-        }
-        .slide.active { opacity: 1; }
-        .slide::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
-        
-        .hero-content { position: relative; z-index: 10; max-width: 800px; }
-        .hero h1 { font-size: clamp(35px, 6vw, 70px); margin-bottom: 20px; }
-        .hero h1 span { color: var(--gold); }
-        .btn { 
-            display: inline-block; background: var(--gold); color: #000; 
-            padding: 15px 35px; border-radius: 5px; text-decoration: none; 
-            font-weight: 700; margin-top: 20px; 
-        }
+/* ─── PAGE SYSTEM ─── */
+.pg{display:none;min-height:100vh}
+.pg.act{display:block}
 
-        /* CHATBOT */
-        #chat-win {
-            position: fixed; bottom: 100px; right: 30px; width: 320px; height: 400px;
-            background: #0a1424; border: 1px solid var(--gold); border-radius: 15px;
-            display: none; flex-direction: column; z-index: 2000; overflow: hidden;
-        }
-        #chat-win.open { display: flex; }
-        .chat-header { background: var(--gold); padding: 15px; color: #000; font-weight: 700; display: flex; justify-content: space-between; }
-        .chat-body { flex: 1; padding: 15px; overflow-y: auto; font-size: 14px; }
-        .chat-input { padding: 10px; border-top: 1px solid #1a2a44; display: flex; }
-        .chat-input input { flex: 1; background: transparent; border: none; color: #fff; outline: none; }
+/* ═══════════════════════════════
+   HERO SLIDER
+═══════════════════════════════ */
+.slider{position:relative;width:100%;height:100vh;min-height:600px;overflow:hidden}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;display:flex;align-items:center;padding:0 5%}
+.slide.active{opacity:1}
 
-        /* FLOATING BUTTONS */
-        .float-btn {
-            position: fixed; bottom: 30px; right: 30px; z-index: 2001;
-            width: 60px; height: 60px; background: var(--gold); border-radius: 15px;
-            border: none; cursor: pointer; font-size: 25px;
-        }
-    </style>
+/* Slide backgrounds */
+.slide-1{background:linear-gradient(135deg,#03090f 0%,#0a1528 40%,#0f2040 100%)}
+.slide-2{background:linear-gradient(135deg,#030d15 0%,#071a2a 40%,#0a2535 100%)}
+.slide-3{background:linear-gradient(135deg,#05100a 0%,#081a10 40%,#0d2818 100%)}
+.slide-4{background:linear-gradient(135deg,#0f0a03 0%,#1a1208 40%,#231808 100%)}
+
+.slide-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1300px;margin:0 auto;gap:40px;padding-top:70px}
+.slide-content{max-width:580px;z-index:2}
+.slide-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
+.tag-blue{background:rgba(20,102,212,.15);border:1px solid rgba(20,102,212,.3);color:#60a5fa}
+.tag-cyan{background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.28);color:#22d3ee}
+.tag-gold{background:rgba(240,165,0,.13);border:1px solid rgba(240,165,0,.28);color:#fbbf24}
+.tag-green{background:rgba(34,197,94,.11);border:1px solid rgba(34,197,94,.26);color:#4ade80}
+.slide-content h1{font-family:'Playfair Display',serif;font-size:clamp(34px,4.5vw,58px);font-weight:700;line-height:1.1;margin-bottom:18px}
+.slide-content h1 em{font-style:normal}
+.h1-blue em{background:linear-gradient(135deg,#60a5fa,#93c5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.h1-cyan em{background:linear-gradient(135deg,#22d3ee,#67e8f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.h1-gold em{background:linear-gradient(135deg,var(--gold),#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.h1-green em{background:linear-gradient(135deg,#4ade80,#86efac);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.slide-desc{font-size:16px;color:rgba(255,255,255,.7);line-height:1.75;margin-bottom:32px;font-weight:300;max-width:460px}
+.slide-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btnp{display:inline-flex;align-items:center;gap:9px;color:#fff;padding:13px 26px;border-radius:11px;font-size:15px;font-weight:600;text-decoration:none;transition:.3s;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+.btn-blue{background:linear-gradient(135deg,var(--blue),var(--blue2))}
+.btn-cyan{background:linear-gradient(135deg,#0891b2,#0e7490)}
+.btn-gold{background:linear-gradient(135deg,#d97706,#b45309)}
+.btn-green{background:linear-gradient(135deg,#059669,#047857)}
+.btnp:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.btno{display:inline-flex;align-items:center;gap:9px;background:transparent;color:#fff;padding:13px 26px;border-radius:11px;font-size:15px;font-weight:600;text-decoration:none;transition:.3s;border:1.5px solid rgba(255,255,255,.25);cursor:pointer;font-family:'DM Sans',sans-serif}
+.btno:hover{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.07)}
+.slide-badges{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.sbadge2{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:6px 14px;border-radius:100px;font-size:12px;color:rgba(255,255,255,.75)}
+
+/* Product visual side */
+.slide-visual{flex-shrink:0;width:42%;max-width:500px;position:relative;display:flex;align-items:center;justify-content:center}
+.product-img{width:100%;max-height:420px;object-fit:contain;filter:drop-shadow(0 20px 60px rgba(0,0,0,.5));transition:transform .4s;animation:floatProd 5s ease-in-out infinite}
+@keyframes floatProd{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.product-glow{position:absolute;inset:-20%;border-radius:50%;opacity:.25;filter:blur(60px);pointer-events:none}
+.glow-blue{background:radial-gradient(circle,#1466d4,transparent 70%)}
+.glow-cyan{background:radial-gradient(circle,#0891b2,transparent 70%)}
+.glow-gold{background:radial-gradient(circle,#d97706,transparent 70%)}
+.glow-green{background:radial-gradient(circle,#059669,transparent 70%)}
+.spec-card{position:absolute;background:rgba(10,20,40,.85);border:1px solid var(--border);border-radius:12px;padding:12px 16px;backdrop-filter:blur(12px);white-space:nowrap}
+.sc-top{right:0;top:15%;animation:flt 4s ease-in-out infinite}
+.sc-bot{left:0;bottom:15%;animation:flt 5s ease-in-out infinite .7s}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.spec-val{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--gold)}
+.spec-lbl{font-size:11px;color:var(--gray);margin-top:2px}
+
+/* Slider controls */
+.slider-dots{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:.3s}
+.dot.act{background:#fff;width:24px;border-radius:4px}
+.slider-arrows{position:absolute;bottom:32px;right:5%;display:flex;gap:10px;z-index:10}
+.sarr{width:42px;height:42px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:17px;transition:.25s;color:#fff}
+.sarr:hover{background:rgba(20,102,212,.35);border-color:rgba(20,102,212,.5)}
+.slider-progress{position:absolute;bottom:0;left:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue2));transition:width .1s linear;z-index:10}
+
+/* ─── SECTION ─── */
+.sec{padding:90px 5%}
+.sh{text-align:center;margin-bottom:58px}
+.badge{display:inline-block;background:rgba(20,102,212,.14);color:var(--blue2);padding:5px 17px;border-radius:100px;font-size:11.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;border:1px solid rgba(20,102,212,.22)}
+.stitle{font-family:'Playfair Display',serif;font-size:clamp(30px,3.5vw,46px);font-weight:700;line-height:1.2;margin-bottom:14px}
+.stitle span{color:var(--blue2)}
+.sdesc{color:var(--gray);font-size:16px;max-width:540px;margin:0 auto;line-height:1.7}
+
+/* ─── FEATURES ─── */
+.fg{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.fc2{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px 26px;transition:.3s;position:relative;overflow:hidden}
+.fc2::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:.3s}
+.fc2:hover{background:rgba(255,255,255,.08);transform:translateY(-4px);border-color:rgba(20,102,212,.3)}
+.fc2:hover::before{opacity:1}
+.fic{width:50px;height:50px;background:linear-gradient(135deg,rgba(20,102,212,.2),rgba(26,124,240,.08));border:1px solid rgba(20,102,212,.3);border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:23px;margin-bottom:22px}
+.ftit{font-size:16px;font-weight:600;margin-bottom:10px}
+.fdesc{color:var(--gray);font-size:13.5px;line-height:1.7}
+
+/* ─── PRODUCT SHOWCASE ─── */
+.products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:0}
+.pcard{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:.3s;cursor:pointer}
+.pcard:hover{transform:translateY(-5px);border-color:rgba(20,102,212,.4);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.pimg{height:240px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.p1bg{background:linear-gradient(135deg,#03090f,#0f2040)}
+.p2bg{background:linear-gradient(135deg,#030d15,#0a2535)}
+.p3bg{background:linear-gradient(135deg,#05100a,#0d2818)}
+.p4bg{background:linear-gradient(135deg,#0f0a03,#231808)}
+.pimg img{max-height:200px;max-width:85%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.6));transition:.5s}
+.pcard:hover .pimg img{transform:scale(1.06) translateY(-4px)}
+.pimg-glow{position:absolute;inset:0;opacity:.2}
+.pbody{padding:22px 24px}
+.ptag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-bottom:10px}
+.ptag-blue{background:rgba(20,102,212,.2);color:#60a5fa;border:1px solid rgba(20,102,212,.3)}
+.ptag-cyan{background:rgba(6,182,212,.14);color:#22d3ee;border:1px solid rgba(6,182,212,.25)}
+.ptag-gold{background:rgba(240,165,0,.13);color:#fbbf24;border:1px solid rgba(240,165,0,.22)}
+.ptag-green{background:rgba(34,197,94,.12);color:#4ade80;border:1px solid rgba(34,197,94,.22)}
+.ptitle{font-size:18px;font-weight:600;margin-bottom:7px}
+.pdesc{color:var(--gray);font-size:13.5px;line-height:1.6;margin-bottom:14px}
+.pfeats{display:flex;flex-direction:column;gap:6px}
+.pfeat{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.75)}
+.pfeat::before{content:'✓';color:var(--blue2);font-weight:700}
+
+/* ─── WHY ─── */
+.why{background:linear-gradient(135deg,var(--navy2),var(--navy3));border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.wg{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.wpts{display:flex;flex-direction:column;gap:22px;margin-top:36px}
+.wpt{display:flex;gap:18px;align-items:flex-start}
+.wpic{width:43px;height:43px;min-width:43px;background:linear-gradient(135deg,rgba(20,102,212,.22),rgba(26,124,240,.08));border:1px solid rgba(20,102,212,.3);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:19px}
+.wptit{font-size:15px;font-weight:600;margin-bottom:5px}
+.wpdesc{color:var(--gray);font-size:13.5px;line-height:1.65}
+.bigcard{background:linear-gradient(135deg,rgba(20,102,212,.16),rgba(240,165,0,.07));border:1px solid var(--border);border-radius:22px;padding:38px;text-align:center}
+.bign{font-family:'Playfair Display',serif;font-size:70px;font-weight:700;color:var(--gold);line-height:1}
+.bigl{color:var(--gray);font-size:15px;margin-top:7px}
+.certs{display:flex;gap:10px;margin-top:22px;justify-content:center;flex-wrap:wrap}
+.cert{background:rgba(255,255,255,.06);border:1px solid var(--border);padding:7px 14px;border-radius:100px;font-size:11.5px;font-weight:600;color:var(--light)}
+
+/* ─── REFS ─── */
+.rtrack{overflow:hidden;mask-image:linear-gradient(90deg,transparent,black 12%,black 88%,transparent)}
+.rrow{display:flex;gap:28px;animation:slide 22s linear infinite;width:max-content}
+.rrow:hover{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ref{background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:11px;padding:14px 26px;font-size:13.5px;font-weight:600;color:var(--gray);white-space:nowrap;transition:.25s}
+.ref:hover{color:#fff;border-color:rgba(20,102,212,.4)}
+
+/* ─── CTA BANNER ─── */
+.ctab{background:linear-gradient(135deg,var(--blue),#0d4fa8 50%,var(--navy3));border-radius:22px;padding:56px 52px;display:flex;align-items:center;justify-content:space-between;gap:36px;position:relative;overflow:hidden;margin:0 5% 90px}
+.ctab::before{content:'';position:absolute;right:-70px;top:-70px;width:360px;height:360px;background:radial-gradient(circle,rgba(255,255,255,.055),transparent 70%)}
+.ctabtit{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,38px);font-weight:700;margin-bottom:10px}
+.ctabsub{color:rgba(255,255,255,.75);font-size:15px}
+.ctabacts{display:flex;flex-direction:column;gap:13px;min-width:210px}
+.ctaphone{display:flex;align-items:center;gap:11px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:13px 19px;text-decoration:none;color:#fff;font-size:17px;font-weight:700;transition:.25s;white-space:nowrap}
+.ctaphone:hover{background:rgba(255,255,255,.22)}
+.ctamail{font-size:13.5px!important;font-weight:500!important}
+
+/* ─── ABOUT ─── */
+.abh{padding:130px 5% 70px;background:linear-gradient(180deg,var(--navy2),var(--navy))}
+.abg{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.abtit{font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,54px);font-weight:700;line-height:1.15;margin-bottom:22px}
+.abdesc{color:var(--gray);font-size:16px;line-height:1.8}
+.abcards{display:flex;flex-direction:column;gap:14px;margin-top:28px}
+.abcs{background:var(--card);border:1px solid var(--border);border-radius:15px;padding:18px 22px;display:flex;align-items:center;gap:14px}
+.abci{width:42px;height:42px;background:linear-gradient(135deg,rgba(20,102,212,.25),rgba(26,124,240,.08));border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px}
+.abct{font-weight:600;font-size:14.5px}
+.abcs2{color:var(--gray);font-size:12.5px;margin-top:2px}
+.statsbar{background:linear-gradient(135deg,var(--navy2),var(--navy3));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:55px 5%}
+.statsg{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
+.statbig{font-family:'Playfair Display',serif;font-size:46px;font-weight:700}
+.statbig span{color:var(--gold)}
+.statlab{color:var(--gray);font-size:13.5px;margin-top:5px}
+.valg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.valc{background:var(--card);border:1px solid var(--border);border-radius:17px;padding:30px 22px;text-align:center}
+.valico{font-size:34px;margin-bottom:14px}
+.valtit{font-size:15.5px;font-weight:600;margin-bottom:9px}
+.valdesc{color:var(--gray);font-size:13.5px;line-height:1.65}
+
+/* ─── SERVICES FULL ─── */
+.svhero{padding:130px 5% 70px;text-align:center;background:linear-gradient(180deg,var(--navy2),var(--navy))}
+.sffull{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;padding:70px 5%}
+.sfc{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:.3s}
+.sfc:hover{transform:translateY(-4px);border-color:rgba(20,102,212,.4)}
+.sftp{padding:32px 30px;display:flex;align-items:flex-start;gap:18px}
+.sfic{width:58px;height:58px;min-width:58px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:26px}
+.ic1{background:linear-gradient(135deg,rgba(20,102,212,.25),rgba(26,124,240,.08));border:1px solid rgba(20,102,212,.3)}
+.ic2{background:linear-gradient(135deg,rgba(6,182,212,.2),rgba(6,182,212,.05));border:1px solid rgba(6,182,212,.25)}
+.ic3{background:linear-gradient(135deg,rgba(240,165,0,.2),rgba(240,165,0,.05));border:1px solid rgba(240,165,0,.25)}
+.ic4{background:linear-gradient(135deg,rgba(139,92,246,.2),rgba(139,92,246,.05));border:1px solid rgba(139,92,246,.25)}
+.sftt{font-size:19px;font-weight:600;margin-bottom:9px}
+.sftd{color:var(--gray);font-size:13.5px;line-height:1.7}
+.sffeat{padding:0 30px 30px}
+.sffl{display:flex;flex-direction:column;gap:9px}
+.sff{display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--gray)}
+.sff::before{content:'✓';color:var(--blue2);font-weight:700;font-size:14px}
+
+/* ─── FAQ ─── */
+.faqlist{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faqitem{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.faqq{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;font-size:15px;font-weight:600;transition:.2s;gap:12px}
+.faqq:hover{background:rgba(255,255,255,.04)}
+.faqarr{font-size:18px;color:var(--blue2);transition:.3s;flex-shrink:0}
+.faqa{max-height:0;overflow:hidden;transition:.4s ease;padding:0 24px}
+.faqa p{color:var(--gray);font-size:14px;line-height:1.7;padding-bottom:20px}
+.faqitem.open .faqarr{transform:rotate(45deg)}
+.faqitem.open .faqa{max-height:300px}
+
+/* ─── CONTACT ─── */
+.contp{padding:130px 5% 70px}
+.contg{display:grid;grid-template-columns:1fr 1.5fr;gap:54px;margin-top:54px}
+.ci h3{font-family:'Playfair Display',serif;font-size:26px;margin-bottom:7px}
+.ci p{color:var(--gray);font-size:14.5px;margin-bottom:28px}
+.iitems{display:flex;flex-direction:column;gap:18px}
+.iitem{display:flex;gap:14px;align-items:flex-start}
+.iiico{width:42px;height:42px;min-width:42px;background:linear-gradient(135deg,rgba(20,102,212,.2),rgba(26,124,240,.07));border:1px solid rgba(20,102,212,.25);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:17px}
+.iilbl{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.iival{font-size:14.5px;font-weight:500}
+.iisub{color:var(--gray);font-size:12.5px;margin-top:1px}
+.cf{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:36px}
+.cft{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:6px}
+.cfs{color:var(--gray);font-size:13.5px;margin-bottom:28px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg2{margin-bottom:18px}
+.fg2 label{display:block;font-size:12.5px;font-weight:600;color:var(--gray);margin-bottom:7px}
+.fg2 input,.fg2 select,.fg2 textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:11px 15px;color:#fff;font-size:14.5px;font-family:'DM Sans',sans-serif;outline:none;transition:.25s}
+.fg2 input:focus,.fg2 select:focus,.fg2 textarea:focus{border-color:var(--blue)}
+.fg2 select option{background:var(--navy2)}
+.fg2 textarea{resize:vertical;min-height:110px}
+.subbtn{width:100%;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;border:none;padding:15px;border-radius:11px;font-size:15px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.3s}
+.subbtn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(20,102,212,.4)}
+.mapsec{padding:0 5% 80px}
+.mapbox{border-radius:18px;overflow:hidden;height:360px;border:1px solid var(--border)}
+.mapbox iframe{width:100%;height:100%;border:none;filter:invert(90%) hue-rotate(180deg)}
+
+/* ─── CHATBOT ─── */
+.chatbub{position:fixed;bottom:26px;right:26px;z-index:2000}
+.chatog{width:58px;height:58px;background:linear-gradient(135deg,var(--blue),var(--blue2));border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:25px;box-shadow:0 8px 30px rgba(20,102,212,.5);transition:.3s}
+.chatog:hover{transform:scale(1.09)}
+.cnot{position:absolute;top:-2px;right:-2px;width:17px;height:17px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:700;color:#000;animation:glw 2s infinite}
+@keyframes glw{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
+.chatwin{position:fixed;bottom:96px;right:26px;width:370px;max-height:550px;background:var(--navy2);border:1px solid var(--border);border-radius:20px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 24px 56px rgba(0,0,0,.65);z-index:2000}
+.chatwin.op{display:flex}
+.chdr{background:linear-gradient(135deg,var(--blue),rgba(20,102,212,.82));padding:18px 18px 15px;display:flex;align-items:center;gap:11px}
+.chav{width:38px;height:38px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px}
+.chnm{font-weight:600;font-size:14.5px}
+.chst{font-size:11.5px;opacity:.8;display:flex;align-items:center;gap:4px}
+.chst::before{content:'';width:5.5px;height:5.5px;background:#4ade80;border-radius:50%;display:inline-block}
+.chcl{margin-left:auto;background:rgba(255,255,255,.15);border:none;color:#fff;width:27px;height:27px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center}
+.chcl:hover{background:rgba(255,255,255,.3)}
+.chmsgs{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:14px}
+.chmsgs::-webkit-scrollbar{width:3px}
+.msg{max-width:86%;display:flex;flex-direction:column;gap:3px}
+.msg.bot{align-self:flex-start}
+.msg.usr{align-self:flex-end}
+.mb{padding:11px 15px;border-radius:15px;font-size:13.5px;line-height:1.6}
+.msg.bot .mb{background:rgba(255,255,255,.08);border:1px solid var(--border);border-bottom-left-radius:4px}
+.msg.usr .mb{background:linear-gradient(135deg,var(--blue),var(--blue2));border-bottom-right-radius:4px}
+.mt{font-size:10.5px;color:var(--gray)}
+.msg.usr .mt{text-align:right}
+.tdots{display:flex;gap:4px;padding:11px 15px;background:rgba(255,255,255,.08);border:1px solid var(--border);border-radius:15px;border-bottom-left-radius:4px;width:56px;align-self:flex-start}
+.tdots span{width:5px;height:5px;background:var(--gray);border-radius:50%;animation:bn .8s infinite}
+.tdots span:nth-child(2){animation-delay:.15s}
+.tdots span:nth-child(3){animation-delay:.3s}
+@keyframes bn{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.qbtns{padding:0 14px 10px;display:flex;flex-wrap:wrap;gap:7px}
+.qb{background:rgba(255,255,255,.06);border:1px solid var(--border);color:var(--gray);padding:5.5px 11px;border-radius:100px;font-size:12px;cursor:pointer;transition:.2s;font-family:'DM Sans',sans-serif}
+.qb:hover{border-color:var(--blue);color:#fff;background:rgba(20,102,212,.16)}
+.chinpa{padding:14px 18px;border-top:1px solid var(--border);display:flex;gap:9px;align-items:flex-end}
+.chinp{flex:1;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:11px;padding:9px 13px;color:#fff;font-size:13.5px;font-family:'DM Sans',sans-serif;outline:none;resize:none;max-height:90px;min-height:38px;transition:.25s;line-height:1.5}
+.chinp:focus{border-color:var(--blue)}
+.chsnd{width:38px;height:38px;background:linear-gradient(135deg,var(--blue),var(--blue2));border:none;border-radius:9px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:.2s;flex-shrink:0}
+.chsnd:hover{transform:scale(1.06)}
+
+/* ─── WHATSAPP ─── */
+.wa{position:fixed;bottom:98px;right:26px;z-index:1999;width:46px;height:46px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;text-decoration:none;box-shadow:0 6px 22px rgba(37,211,102,.45);transition:.3s}
+.wa:hover{transform:scale(1.1)}
+
+/* ─── FOOTER ─── */
+footer{background:var(--navy2);border-top:1px solid var(--border);padding:58px 5% 30px}
+.footg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
+.footdesc{color:var(--gray);font-size:13.5px;line-height:1.7;max-width:270px;margin-top:14px}
+.footsoc{display:flex;gap:9px;margin-top:18px}
+.fsoc{width:34px;height:34px;background:var(--card);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;transition:.25s;text-decoration:none;color:#fff}
+.fsoc:hover{border-color:var(--blue);background:rgba(20,102,212,.18)}
+.fcol h4{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:18px}
+.fcol a{display:block;color:rgba(255,255,255,.62);font-size:13.5px;text-decoration:none;margin-bottom:9px;transition:.2s;cursor:pointer}
+.fcol a:hover{color:#fff}
+.footbot{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;color:var(--gray);font-size:12.5px;flex-wrap:wrap;gap:10px}
+
+/* ─── ANIMATION ─── */
+.fi{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.25,.46,.45,.94)}
+.fi.vis{opacity:1;transform:translateY(0)}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1100px){.fg{grid-template-columns:repeat(2,1fr)}.footg{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:900px){
+  .slide-visual{display:none}.slide-inner{padding-top:80px}
+  .slide-content{max-width:100%}
+  .sffull,.contg,.abg,.wg,.products-grid{grid-template-columns:1fr}
+  .statsg{grid-template-columns:repeat(2,1fr)}
+  .valg{grid-template-columns:1fr 1fr}
+  .ctab{flex-direction:column;padding:36px 28px}
+  .frow{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nl,.cta{display:none}.ham{display:flex}
+  .fg{grid-template-columns:1fr}
+  .footg{grid-template-columns:1fr}
+  .chatwin{width:calc(100vw - 38px);right:19px}
+  .slider{height:90vh}
+}
+</style>
 </head>
 <body>
 
-<nav>
-    <a href="#" class="logo">İMDETEK <span>TEKNOLOJİ</span></a>
-    <div style="font-size: 11px; font-weight: 700; color: var(--gold);">ALARKO YETKİLİ BAYİ</div>
-</nav>
-
-<div class="hero">
-    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?q=80&w=1600');"></div>
-    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1631548231167-9aa923fe9991?q=80&w=1600');"></div>
-    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1585129049162-71c2604fbb89?q=80&w=1600');"></div>
-
-    <div class="hero-content">
-        <h1>Alarko Carrier <span>Konforu</span></h1>
-        <p>Bursa'nın her yerine Alarko yetkili bayi güvencesiyle servis ve kurulum sağlıyoruz.</p>
-        <a href="tel:05075589208" class="btn">HEMEN ARA</a>
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <div class="ni">
+    <div class="logo" onclick="goTo('home')">
+      <div class="li">İT</div>
+      <div><div class="lt">İmdetek Teknoloji</div><div class="ls">Alarko Yetkili Servis — Bursa</div></div>
     </div>
+    <div class="nl">
+      <a onclick="goTo('home')" id="na-home" class="act">Anasayfa</a>
+      <a onclick="goTo('about')" id="na-about">Kurumsal</a>
+      <a onclick="goTo('services')" id="na-services">Hizmetler</a>
+      <a onclick="goTo('products')" id="na-products">Ürünler</a>
+      <a onclick="goTo('faq')" id="na-faq">SSS</a>
+      <a onclick="goTo('contact')" id="na-contact">İletişim</a>
+    </div>
+    <div class="nr">
+      <button class="lbtn" onclick="toggleLang()" id="lbll">🇬🇧 EN</button>
+      <a class="cta" href="tel:05075589208">📞 0 507 558 92 08</a>
+      <div class="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+<div class="mob" id="mob">
+  <a onclick="goTo('home');toggleMob()">🏠 Anasayfa</a>
+  <a onclick="goTo('about');toggleMob()">🏢 Kurumsal</a>
+  <a onclick="goTo('services');toggleMob()">🔧 Hizmetler</a>
+  <a onclick="goTo('products');toggleMob()">📦 Ürünler</a>
+  <a onclick="goTo('faq');toggleMob()">❓ SSS</a>
+  <a onclick="goTo('contact');toggleMob()">📞 İletişim</a>
 </div>
 
-<button class="float-btn" onclick="toggleChat()">🤖</button>
+<!-- ═══════════════ HOME PAGE ═══════════════ -->
+<div class="pg act" id="pg-home">
 
-<div id="chat-win">
-    <div class="chat-header">İmdetek Asistan <span onclick="toggleChat()" style="cursor:pointer">X</span></div>
-    <div class="chat-body" id="msgs">Merhaba! Alarko ürünleri, adresimiz veya çalışma saatlerimiz hakkında bilgi alabilirsiniz.</div>
-    <div class="chat-input">
-        <input type="text" id="chatIn" placeholder="Sorunuzu yazın..." onkeypress="if(event.key==='Enter') sendChat()">
-        <button onclick="sendChat()" style="background:none; border:none; color:var(--gold); font-weight:700; cursor:pointer; padding-left:10px;">></button>
+<!-- ══ HERO SLIDER ══ -->
+<div class="slider" id="slider">
+  <div class="slider-progress" id="slProg"></div>
+
+  <!-- SLIDE 1 — Alarko Kombi -->
+  <div class="slide slide-1 active">
+    <div class="slide-inner">
+      <div class="slide-content">
+        <div class="slide-tag tag-blue">🔥 <span class="tr">Isıtma Sistemleri</span><span class="en" style="display:none">Heating Systems</span></div>
+        <h1 class="h1-blue">
+          <span class="tr">Alarko Kombi<br><em>Yetkili Servisi</em></span>
+          <span class="en" style="display:none">Alarko Boiler<br><em>Authorized Service</em></span>
+        </h1>
+        <p class="slide-desc tr">Alarko SuperFit ve tüm kombi modellerinde orijinal parça garantili bakım, tamir ve montaj hizmeti. Bursa genelinde aynı gün servis.</p>
+        <p class="slide-desc en" style="display:none">Maintenance, repair and installation service with original parts guarantee for Alarko SuperFit and all boiler models. Same day service throughout Bursa.</p>
+        <div class="slide-btns">
+          <a class="btnp btn-blue" href="tel:05075589208">📞 <span class="tr">Hemen Ara</span><span class="en" style="display:none">Call Now</span></a>
+          <button class="btno" onclick="goTo('services')"><span class="tr">Hizmet Detayı</span><span class="en" style="display:none">Service Details</span></button>
+        </div>
+        <div class="slide-badges">
+          <span class="sbadge2">✅ <span class="tr">Alarko Yetkili</span><span class="en" style="display:none">Alarko Authorized</span></span>
+          <span class="sbadge2">⚡ <span class="tr">Aynı Gün</span><span class="en" style="display:none">Same Day</span></span>
+          <span class="sbadge2">🛡️ <span class="tr">1 Yıl Garanti</span><span class="en" style="display:none">1 Year Warranty</span></span>
+        </div>
+      </div>
+      <div class="slide-visual">
+        <div class="product-glow glow-blue"></div>
+        <img class="product-img" src="https://imdetekteknoloji.com/Uploads/icerik-resimleri/slide/c5cb74e8-kombi-servisi-slider.png" alt="Alarko Kombi" onerror="this.style.fontSize='120px';this.style.textAlign='center';this.textContent='🔥'">
+        <div class="spec-card sc-top">
+          <div class="spec-val">A++</div>
+          <div class="spec-lbl tr">Enerji Sınıfı</div>
+          <div class="spec-lbl en" style="display:none">Energy Class</div>
+        </div>
+        <div class="spec-card sc-bot">
+          <div class="spec-val">24 kW</div>
+          <div class="spec-lbl">SuperFit SUF 24</div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- SLIDE 2 — Alarko Klima -->
+  <div class="slide slide-2">
+    <div class="slide-inner">
+      <div class="slide-content">
+        <div class="slide-tag tag-cyan">❄️ <span class="tr">Soğutma & Isıtma</span><span class="en" style="display:none">Cooling & Heating</span></div>
+        <h1 class="h1-cyan">
+          <span class="tr">Alarko Flair<br><em>Klima Servisi</em></span>
+          <span class="en" style="display:none">Alarko Flair<br><em>AC Service</em></span>
+        </h1>
+        <p class="slide-desc tr">Alarko Flair Split ve Multi Klima sistemlerinde profesyonel bakım, gaz dolumu, arıza giderme ve montaj. Her mevsim konfor garantisi.</p>
+        <p class="slide-desc en" style="display:none">Professional maintenance, gas refill, fault repair and installation for Alarko Flair Split and Multi AC systems. Comfort guarantee for every season.</p>
+        <div class="slide-btns">
+          <a class="btnp btn-cyan" href="tel:05075589208">📞 <span class="tr">Hemen Ara</span><span class="en" style="display:none">Call Now</span></a>
+          <button class="btno" onclick="goTo('services')"><span class="tr">Hizmet Detayı</span><span class="en" style="display:none">Service Details</span></button>
+        </div>
+        <div class="slide-badges">
+          <span class="sbadge2">❄️ <span class="tr">Gaz Dolumu</span><span class="en" style="display:none">Gas Refill</span></span>
+          <span class="sbadge2">🔧 <span class="tr">Tüm Modeller</span><span class="en" style="display:none">All Models</span></span>
+          <span class="sbadge2">📅 <span class="tr">Yıllık Bakım</span><span class="en" style="display:none">Annual Maintenance</span></span>
+        </div>
+      </div>
+      <div class="slide-visual">
+        <div class="product-glow glow-cyan"></div>
+        <img class="product-img" src="https://imdetekteknoloji.com/Uploads/icerik-resimleri/slide/761b4426-klima-slider.jpg" alt="Alarko Klima" onerror="this.style.fontSize='120px';this.style.textAlign='center';this.textContent='❄️'">
+        <div class="spec-card sc-top">
+          <div class="spec-val">A+++</div>
+          <div class="spec-lbl tr">Enerji Sınıfı</div>
+          <div class="spec-lbl en" style="display:none">Energy Class</div>
+        </div>
+        <div class="spec-card sc-bot">
+          <div class="spec-val">Inverter</div>
+          <div class="spec-lbl">Flair Series</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3 — Güneş Enerjisi -->
+  <div class="slide slide-3">
+    <div class="slide-inner">
+      <div class="slide-content">
+        <div class="slide-tag tag-gold">☀️ <span class="tr">Yenilenebilir Enerji</span><span class="en" style="display:none">Renewable Energy</span></div>
+        <h1 class="h1-gold">
+          <span class="tr">Güneş Enerji<br><em>Sistemleri Kurulumu</em></span>
+          <span class="en" style="display:none">Solar Energy<br><em>System Installation</em></span>
+        </h1>
+        <p class="slide-desc tr">Alarko Fotovoltaik panel kurulumu ve GES sistemlerinde uzman danışmanlık. Elektrik faturanızı %80'e kadar düşürün.</p>
+        <p class="slide-desc en" style="display:none">Expert consultancy in Alarko Photovoltaic panel installation and solar energy systems. Reduce your electricity bill by up to 80%.</p>
+        <div class="slide-btns">
+          <a class="btnp btn-gold" href="tel:05075589208">📞 <span class="tr">Ücretsiz Keşif</span><span class="en" style="display:none">Free Inspection</span></a>
+          <button class="btno" onclick="goTo('services')"><span class="tr">Daha Fazla</span><span class="en" style="display:none">Learn More</span></button>
+        </div>
+        <div class="slide-badges">
+          <span class="sbadge2">💰 <span class="tr">%80 Tasarruf</span><span class="en" style="display:none">80% Savings</span></span>
+          <span class="sbadge2">📊 <span class="tr">5-7 Yıl Geri Dönüş</span><span class="en" style="display:none">5-7 Year ROI</span></span>
+          <span class="sbadge2">🌍 <span class="tr">Çevre Dostu</span><span class="en" style="display:none">Eco Friendly</span></span>
+        </div>
+      </div>
+      <div class="slide-visual">
+        <div class="product-glow glow-gold"></div>
+        <img class="product-img" src="https://imdetekteknoloji.com/Uploads/icerik-resimleri/d33a0379-kombi-servisi.jpg" alt="Güneş Enerjisi" style="border-radius:12px" onerror="this.style.fontSize='120px';this.style.textAlign='center';this.textContent='☀️'">
+        <div class="spec-card sc-top">
+          <div class="spec-val">%80</div>
+          <div class="spec-lbl tr">Fatura Tasarrufu</div>
+          <div class="spec-lbl en" style="display:none">Bill Savings</div>
+        </div>
+        <div class="spec-card sc-bot">
+          <div class="spec-val">25 Yıl</div>
+          <div class="spec-lbl tr">Panel Ömrü</div>
+          <div class="spec-lbl en" style="display:none">Panel Lifespan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4 — Su Pompaları -->
+  <div class="slide slide-4">
+    <div class="slide-inner">
+      <div class="slide-content">
+        <div class="slide-tag tag-green">💧 <span class="tr">Su Sistemleri</span><span class="en" style="display:none">Water Systems</span></div>
+        <h1 class="h1-green">
+          <span class="tr">Su Pompaları<br><em>Uzman Servisi</em></span>
+          <span class="en" style="display:none">Water Pumps<br><em>Expert Service</em></span>
+        </h1>
+        <p class="slide-desc tr">Alarko dalgıç pompa, sirkülasyon pompası ve hidrofor sistemlerinde profesyonel tamir, bakım ve montaj hizmeti.</p>
+        <p class="slide-desc en" style="display:none">Professional repair, maintenance and installation for Alarko submersible pumps, circulation pumps and hydrophore systems.</p>
+        <div class="slide-btns">
+          <a class="btnp btn-green" href="tel:05075589208">📞 <span class="tr">Hemen Ara</span><span class="en" style="display:none">Call Now</span></a>
+          <button class="btno" onclick="goTo('services')"><span class="tr">Hizmet Detayı</span><span class="en" style="display:none">Service Details</span></button>
+        </div>
+        <div class="slide-badges">
+          <span class="sbadge2">💧 <span class="tr">Dalgıç Pompa</span><span class="en" style="display:none">Submersible</span></span>
+          <span class="sbadge2">🔄 <span class="tr">Sirkülasyon</span><span class="en" style="display:none">Circulation</span></span>
+          <span class="sbadge2">🏗️ <span class="tr">Hidrofor</span><span class="en" style="display:none">Hydrophore</span></span>
+        </div>
+      </div>
+      <div class="slide-visual">
+        <div class="product-glow glow-green"></div>
+        <div style="font-size:160px;text-align:center;filter:drop-shadow(0 20px 60px rgba(0,0,0,.5));animation:floatProd 5s ease-in-out infinite">💧</div>
+        <div class="spec-card sc-top">
+          <div class="spec-val">24/7</div>
+          <div class="spec-lbl tr">Acil Servis</div>
+          <div class="spec-lbl en" style="display:none">Emergency</div>
+        </div>
+        <div class="spec-card sc-bot">
+          <div class="spec-val tr">Tüm Tipler</div>
+          <div class="spec-val en" style="display:none">All Types</div>
+          <div class="spec-lbl tr">Pompa Servisi</div>
+          <div class="spec-lbl en" style="display:none">Pump Service</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- dots & arrows -->
+  <div class="slider-dots">
+    <div class="dot act" onclick="goSlide(0)"></div>
+    <div class="dot" onclick="goSlide(1)"></div>
+    <div class="dot" onclick="goSlide(2)"></div>
+    <div class="dot" onclick="goSlide(3)"></div>
+  </div>
+  <div class="slider-arrows">
+    <button class="sarr" onclick="prevSlide()">‹</button>
+    <button class="sarr" onclick="nextSlide()">›</button>
+  </div>
+</div><!-- /slider -->
+
+<!-- FEATURES -->
+<section class="sec">
+  <div class="sh fi">
+    <div class="badge tr">Neden Biz</div><div class="badge en" style="display:none">Why Us</div>
+    <h2 class="stitle tr">Bursa'nın Tercih Ettiği <span>Teknik Servis</span></h2>
+    <h2 class="stitle en" style="display:none">Bursa's Preferred <span>Technical Service</span></h2>
+  </div>
+  <div class="fg">
+    <div class="fc2 fi"><div class="fic">🏅</div><div class="ftit tr">Alarko Yetkili Servis</div><div class="ftit en" style="display:none">Alarko Authorized</div><div class="fdesc tr">Orijinal parça ve fabrika garantisi. Tüm işlemler Alarko marka standartlarına uygun olarak gerçekleştirilir.</div><div class="fdesc en" style="display:none">Original parts and factory warranty. All operations comply with Alarko brand standards.</div></div>
+    <div class="fc2 fi"><div class="fic">⚡</div><div class="ftit tr">Aynı Gün Servis</div><div class="ftit en" style="display:none">Same Day Service</div><div class="fdesc tr">Arıza bildiriminizden itibaren maksimum 2 saat içinde ekibimiz kapınızda. Hızlı ve kalıcı çözüm.</div><div class="fdesc en" style="display:none">Our team is at your door within 2 hours of your fault report. Fast and permanent solution.</div></div>
+    <div class="fc2 fi"><div class="fic">🛡️</div><div class="ftit tr">1 Yıl İşçilik Garantisi</div><div class="ftit en" style="display:none">1 Year Labor Warranty</div><div class="fdesc tr">Tüm işçilik ve montaj işlemlerimize 1 yıl garanti veriyoruz. Güvenle teslim edin.</div><div class="fdesc en" style="display:none">We provide 1 year warranty on all labor and installation works.</div></div>
+    <div class="fc2 fi"><div class="fic">👨‍🔧</div><div class="ftit tr">Sertifikalı Uzman Ekip</div><div class="ftit en" style="display:none">Certified Expert Team</div><div class="fdesc tr">Sertifikalı ve deneyimli teknisyenlerimiz en karmaşık arızaları bile hızla çözüme kavuşturur.</div><div class="fdesc en" style="display:none">Certified and experienced technicians quickly resolve even the most complex malfunctions.</div></div>
+    <div class="fc2 fi"><div class="fic">💰</div><div class="ftit tr">Şeffaf Fiyatlandırma</div><div class="ftit en" style="display:none">Transparent Pricing</div><div class="fdesc tr">Gizli ücret yok. İşlem öncesi net fiyat bilgisi. Kapıda nakit veya kredi kartı ile ödeme.</div><div class="fdesc en" style="display:none">No hidden fees. Clear price information. Cash or credit card payment at the door.</div></div>
+    <div class="fc2 fi"><div class="fic">📍</div><div class="ftit tr">Bursa Genelinde Hizmet</div><div class="ftit en" style="display:none">Bursa-Wide Service</div><div class="fdesc tr">Osmangazi, Nilüfer, Yıldırım ve tüm Bursa ilçelerine mobil ekibimizle hizmet veriyoruz.</div><div class="fdesc en" style="display:none">We serve all Bursa districts including Osmangazi, Nilüfer and Yıldırım with our mobile team.</div></div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="sec why">
+  <div class="wg">
+    <div class="fi">
+      <div class="badge tr">Güçlü Yanlarımız</div><div class="badge en" style="display:none">Our Strengths</div>
+      <h2 class="stitle" style="text-align:left;margin-bottom:0"><span class="tr">Alarko Yetkili Servis <span>Farkıyla</span></span><span class="en" style="display:none">With Alarko <span>Authorized Difference</span></span></h2>
+      <div class="wpts">
+        <div class="wpt"><div class="wpic">🎯</div><div><div class="wptit tr">İlk Seferinde Doğru Çözüm</div><div class="wptit en" style="display:none">First-Time Fix</div><div class="wpdesc tr">Deneyimli ekibimiz arızayı ilk ziyarette tespit ederek kalıcı çözüm üretir. Tekrarlayan arıza olmaz.</div><div class="wpdesc en" style="display:none">Our experienced team identifies the fault on the first visit and produces a permanent fix.</div></div></div>
+        <div class="wpt"><div class="wpic">📱</div><div><div class="wptit tr">Anlık Bilgilendirme</div><div class="wptit en" style="display:none">Real-Time Updates</div><div class="wpdesc tr">Teknisyen yoldayken sizi bilgilendiriyoruz. Şeffaf ve hızlı iletişim her zaman önceliğimiz.</div><div class="wpdesc en" style="display:none">We keep you informed while the technician is on the way. Transparent communication.</div></div></div>
+        <div class="wpt"><div class="wpic">🔐</div><div><div class="wptit tr">Güvenilir & Sigortalı Ekip</div><div class="wptit en" style="display:none">Reliable & Insured Team</div><div class="wpdesc tr">Tüm teknisyenlerimiz sigortalı ve kimlik doğrulamalıdır. Evinizde güvenle çalışır.</div><div class="wpdesc en" style="display:none">All technicians are insured and identity-verified. Safe to work in your home.</div></div></div>
+      </div>
+    </div>
+    <div class="fi">
+      <div class="bigcard">
+        <div class="bign">15<span>+</span></div>
+        <div class="bigl tr">Yıllık Sektör Deneyimi</div>
+        <div class="bigl en" style="display:none">Years of Industry Experience</div>
+        <div class="certs"><span class="cert">Alarko Yetkili</span><span class="cert">ISO 9001</span><span class="cert">TSE Belgeli</span><span class="cert">Sigortalı Ekip</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section class="sec" style="padding-bottom:0">
+  <div class="sh fi">
+    <div class="badge tr">Referanslarımız</div><div class="badge en" style="display:none">Our References</div>
+    <h2 class="stitle tr">Güvenimizi Kazanan <span>Kurumsal Markalar</span></h2>
+    <h2 class="stitle en" style="display:none">Corporate Brands That <span>Trust Us</span></h2>
+  </div>
+  <div class="rtrack">
+    <div class="rrow">
+      <span class="ref">MSK</span><span class="ref">OYAK</span><span class="ref">Kaplanlar</span><span class="ref">Warmhause</span><span class="ref">Mmilux</span><span class="ref">Erkurt Holding</span><span class="ref">Form Flex</span><span class="ref">Sistas</span><span class="ref">Demircioğlu</span><span class="ref">Şafak</span><span class="ref">ALP</span><span class="ref">Anıl Orman</span><span class="ref">Zimas</span><span class="ref">Topesan</span><span class="ref">Commital</span><span class="ref">Erkay Maden</span><span class="ref">DE Metal</span><span class="ref">İnci</span><span class="ref">Coşkunöz</span>
+      <span class="ref">MSK</span><span class="ref">OYAK</span><span class="ref">Kaplanlar</span><span class="ref">Warmhause</span><span class="ref">Mmilux</span><span class="ref">Erkurt Holding</span><span class="ref">Form Flex</span><span class="ref">Sistas</span><span class="ref">Demircioğlu</span><span class="ref">Şafak</span><span class="ref">ALP</span><span class="ref">Anıl Orman</span><span class="ref">Zimas</span><span class="ref">Topesan</span><span class="ref">Commital</span><span class="ref">Erkay Maden</span><span class="ref">DE Metal</span><span class="ref">İnci</span><span class="ref">Coşkunöz</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="ctab fi">
+  <div><div class="ctabtit tr">Ücretsiz Keşif ve Servis<br>Hizmetimizden Yararlanın</div><div class="ctabtit en" style="display:none">Benefit From Our<br>Free Inspection & Service</div><div class="ctabsub tr">Bursa genelinde hızlı, profesyonel ve garantili teknik servis</div><div class="ctabsub en" style="display:none">Fast, professional and guaranteed technical service throughout Bursa</div></div>
+  <div class="ctabacts">
+    <a class="ctaphone" href="tel:05075589208">📞 0 507 558 92 08</a>
+    <a class="ctaphone ctamail" href="https://wa.me/905075589208">💬 WhatsApp</a>
+  </div>
+</div>
+
+</div><!-- /home -->
+
+<!-- ═══════════════ ABOUT PAGE ═══════════════ -->
+<div class="pg" id="pg-about">
+  <section class="abh">
+    <div class="abg">
+      <div class="fi">
+        <div class="badge tr">Hakkımızda</div><div class="badge en" style="display:none">About Us</div>
+        <h1 class="abtit tr">Bursa'da 15 Yılı Aşkın <span style="color:var(--blue2)">Sektör Deneyimi</span></h1>
+        <h1 class="abtit en" style="display:none">Over 15 Years of <span style="color:var(--blue2)">Industry Experience</span> in Bursa</h1>
+        <p class="abdesc tr">İmdetek Teknoloji, Alarko yetkili servisi güvencesiyle Bursa'da iklimlendirme ve enerji sistemleri alanında uzmanlaşmış profesyonel bir teknik servis firmasıdır.<br><br>Kombi, klima, güneş enerji sistemleri ve su pompaları alanlarında sunduğumuz hizmetlerle binlerce müşterimizin güvenini kazandık. Her işlemde Alarko standartları, orijinal parçalar ve 1 yıl işçilik garantisi sunuyoruz.</p>
+        <p class="abdesc en" style="display:none">İmdetek Teknoloji is a professional technical service company specializing in air conditioning and energy systems in Bursa with Alarko authorized service guarantee.<br><br>We have earned the trust of thousands of customers with our services in boilers, air conditioning, solar energy systems and water pumps.</p>
+      </div>
+      <div class="fi">
+        <div class="abcards">
+          <div class="abcs"><div class="abci">🎯</div><div><div class="abct tr">Misyonumuz</div><div class="abct en" style="display:none">Our Mission</div><div class="abcs2 tr">Müşterilerimize en hızlı, kaliteli ve güvenilir teknik servis hizmetini sunmak.</div><div class="abcs2 en" style="display:none">To provide the fastest, highest quality and most reliable technical service.</div></div></div>
+          <div class="abcs"><div class="abci">🌟</div><div><div class="abct tr">Vizyonumuz</div><div class="abct en" style="display:none">Our Vision</div><div class="abcs2 tr">Türkiye'nin en güvenilir teknik servis markası olmak ve sektöre öncü olmak.</div><div class="abcs2 en" style="display:none">To be Turkey's most trusted technical service brand and a pioneer in the sector.</div></div></div>
+          <div class="abcs"><div class="abci">📍</div><div><div class="abct tr">Hizmet Bölgesi</div><div class="abct en" style="display:none">Service Area</div><div class="abcs2 tr">Osmangazi, Nilüfer, Yıldırım ve tüm Bursa ilçeleri — aynı gün servis</div><div class="abcs2 en" style="display:none">All Bursa districts — same day service available</div></div></div>
+          <div class="abcs"><div class="abci">💳</div><div><div class="abct tr">Ödeme Kolaylığı</div><div class="abct en" style="display:none">Payment Options</div><div class="abcs2 tr">Kapıda nakit ve kredi kartı ile ödeme. Gizli ücret yok.</div><div class="abcs2 en" style="display:none">Cash and credit card at the door. No hidden fees.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="statsbar">
+    <div class="statsg">
+      <div class="fi"><div class="statbig">15<span>+</span></div><div class="statlab tr">Yıllık Tecrübe</div><div class="statlab en" style="display:none">Years Experience</div></div>
+      <div class="fi"><div class="statbig">5000<span>+</span></div><div class="statlab tr">Tamamlanan Servis</div><div class="statlab en" style="display:none">Completed Services</div></div>
+      <div class="fi"><div class="statbig">98<span>%</span></div><div class="statlab tr">Müşteri Memnuniyeti</div><div class="statlab en" style="display:none">Customer Satisfaction</div></div>
+      <div class="fi"><div class="statbig">27<span>+</span></div><div class="statlab tr">Kurumsal Referans</div><div class="statlab en" style="display:none">Corporate References</div></div>
+    </div>
+  </div>
+  <section class="sec">
+    <div class="sh fi">
+      <div class="badge tr">Kurumsal Değerlerimiz</div><div class="badge en" style="display:none">Our Corporate Values</div>
+      <h2 class="stitle tr">Bizi <span>Farklı Kılan</span> Değerler</h2>
+      <h2 class="stitle en" style="display:none">Values That <span>Set Us Apart</span></h2>
+    </div>
+    <div class="valg">
+      <div class="valc fi"><div class="valico">🤝</div><div class="valtit tr">Güvenilirlik</div><div class="valtit en" style="display:none">Reliability</div><div class="valdesc tr">Her söz verdiğimizi yerine getiririz. Müşterilerimizle uzun vadeli güven ilişkisi kuruyoruz.</div><div class="valdesc en" style="display:none">We fulfill every promise. We build long-term trust relationships with our customers.</div></div>
+      <div class="valc fi"><div class="valico">⚡</div><div class="valtit tr">Hız & Verimlilik</div><div class="valtit en" style="display:none">Speed & Efficiency</div><div class="valdesc tr">Zamanınızın değerini biliyoruz. Her acil durumda en hızlı yanıt süresini sağlıyoruz.</div><div class="valdesc en" style="display:none">We know the value of your time. We provide the fastest response time in every emergency.</div></div>
+      <div class="valc fi"><div class="valico">🔬</div><div class="valtit tr">Kalite Standartları</div><div class="valtit en" style="display:none">Quality Standards</div><div class="valdesc tr">ISO 9001 ve Alarko kalite standartlarını her işlemde eksiksiz uyguluyoruz.</div><div class="valdesc en" style="display:none">We fully apply ISO 9001 and Alarko quality standards in every operation.</div></div>
+      <div class="valc fi"><div class="valico">🌍</div><div class="valtit tr">Sürdürülebilirlik</div><div class="valtit en" style="display:none">Sustainability</div><div class="valdesc tr">Güneş enerjisi çözümleriyle çevre dostu ve ekonomik bir gelecek inşa ediyoruz.</div><div class="valdesc en" style="display:none">We build an eco-friendly and economical future with solar energy solutions.</div></div>
+      <div class="valc fi"><div class="valico">💡</div><div class="valtit tr">Teknoloji & İnovasyon</div><div class="valtit en" style="display:none">Technology & Innovation</div><div class="valdesc tr">Sektördeki en yenilikçi çözümleri takip ederek müşterilerimize sunuyoruz.</div><div class="valdesc en" style="display:none">We follow the most innovative solutions in the sector and offer them to our customers.</div></div>
+      <div class="valc fi"><div class="valico">🎓</div><div class="valtit tr">Sürekli Gelişim</div><div class="valtit en" style="display:none">Continuous Improvement</div><div class="valdesc tr">Ekibimiz düzenli eğitim ve sertifika programlarıyla kendini sürekli güncel tutar.</div><div class="valdesc en" style="display:none">Our team continuously updates itself with regular training and certification programs.</div></div>
+    </div>
+  </section>
+</div><!-- /about -->
+
+<!-- ═══════════════ SERVICES PAGE ═══════════════ -->
+<div class="pg" id="pg-services">
+  <section class="svhero">
+    <div class="badge fi tr">Hizmetlerimiz</div><div class="badge fi en" style="display:none">Our Services</div>
+    <h1 class="stitle fi tr" style="font-size:clamp(34px,4.5vw,58px)">Tüm Teknik <span>Servis Hizmetlerimiz</span></h1>
+    <h1 class="stitle fi en" style="font-size:clamp(34px,4.5vw,58px);display:none">All Our Technical <span>Service Solutions</span></h1>
+    <p class="sdesc fi tr">Alarko yetkili servis güvencesiyle iklimlendirme ve enerji sistemlerinde kapsamlı profesyonel hizmet</p>
+    <p class="sdesc fi en" style="display:none">Comprehensive professional service in air conditioning and energy systems with Alarko authorized guarantee</p>
+  </section>
+  <div class="sffull">
+    <div class="sfc fi"><div class="sftp"><div class="sfic ic1">🔥</div><div><div class="sftt tr">Kombi Servisi</div><div class="sftt en" style="display:none">Boiler Service</div><div class="sftd tr">Alarko SuperFit ve tüm kombi modellerinde yetkili servis güvencesiyle arıza tespiti, bakım ve montaj. Bursa genelinde aynı gün müdahale.</div><div class="sftd en" style="display:none">Fault detection, maintenance and installation with authorized service guarantee for Alarko SuperFit and all boiler models. Same-day response throughout Bursa.</div></div></div><div class="sffeat"><div class="sffl"><div class="sff tr">Kombi arıza tespiti ve tamiri</div><div class="sff en" style="display:none">Boiler fault detection and repair</div><div class="sff tr">Yıllık periyodik bakım ve temizlik</div><div class="sff en" style="display:none">Annual periodic maintenance and cleaning</div><div class="sff tr">Yeni kombi montajı ve devreye alma</div><div class="sff en" style="display:none">New boiler installation and commissioning</div><div class="sff tr">Orijinal Alarko yedek parça temini</div><div class="sff en" style="display:none">Original Alarko spare parts supply</div><div class="sff tr">1 yıl işçilik garantisi</div><div class="sff en" style="display:none">1 year labor warranty</div></div></div></div>
+    <div class="sfc fi"><div class="sftp"><div class="sfic ic2">❄️</div><div><div class="sftt tr">Klima Servisi</div><div class="sftt en" style="display:none">AC Service</div><div class="sftd tr">Alarko Flair Split ve Multi klima sistemlerinde profesyonel bakım, gaz dolumu, arıza giderme ve montaj. Tüm kapasite ve modellere hizmet.</div><div class="sftd en" style="display:none">Professional maintenance, gas refill, fault repair and installation for Alarko Flair Split and Multi AC systems. Service for all capacities and models.</div></div></div><div class="sffeat"><div class="sffl"><div class="sff tr">Klima arıza tespiti ve onarımı</div><div class="sff en" style="display:none">AC fault detection and repair</div><div class="sff tr">Soğutucu gaz dolumu ve kaçak tespiti</div><div class="sff en" style="display:none">Refrigerant gas refill and leak detection</div><div class="sff tr">Periyodik bakım ve filtre temizliği</div><div class="sff en" style="display:none">Periodic maintenance and filter cleaning</div><div class="sff tr">Split ve Multi Split sistem montajı</div><div class="sff en" style="display:none">Split and Multi Split system installation</div><div class="sff tr">Tüm marka ve modeller</div><div class="sff en" style="display:none">All brands and models</div></div></div></div>
+    <div class="sfc fi"><div class="sftp"><div class="sfic ic3">☀️</div><div><div class="sftt tr">Güneş Enerji Sistemleri</div><div class="sftt en" style="display:none">Solar Energy Systems</div><div class="sftd tr">Alarko Fotovoltaik panel kurulumu ve GES sistemlerinde profesyonel proje tasarımı, kurulum, bakım ve danışmanlık. Faturanızı %80 düşürün.</div><div class="sftd en" style="display:none">Professional project design, installation, maintenance and consultancy for Alarko Photovoltaic panel installation and solar energy systems. Reduce bills by 80%.</div></div></div><div class="sffeat"><div class="sffl"><div class="sff tr">GES proje tasarımı ve fizibilite</div><div class="sff en" style="display:none">Solar plant project design and feasibility</div><div class="sff tr">Alarko panel kurulum ve montajı</div><div class="sff en" style="display:none">Alarko panel installation and setup</div><div class="sff tr">Sistem bakımı ve performans takibi</div><div class="sff en" style="display:none">System maintenance and performance monitoring</div><div class="sff tr">Yatırım geri dönüş analizi</div><div class="sff en" style="display:none">Investment return analysis</div><div class="sff tr">Ücretsiz ön keşif ve hesaplama</div><div class="sff en" style="display:none">Free preliminary survey and calculation</div></div></div></div>
+    <div class="sfc fi"><div class="sftp"><div class="sfic ic4">💧</div><div><div class="sftt tr">Su Pompaları Servisi</div><div class="sftt en" style="display:none">Water Pump Service</div><div class="sftd tr">Alarko dalgıç pompa, sirkülasyon pompası ve hidrofor sistemlerinde profesyonel tamir, bakım ve montaj hizmeti. Endüstriyel ve konut çözümleri.</div><div class="sftd en" style="display:none">Professional repair, maintenance and installation for Alarko submersible pumps, circulation pumps and hydrophore systems. Industrial and residential solutions.</div></div></div><div class="sffeat"><div class="sffl"><div class="sff tr">Dalgıç pompa bakım ve onarımı</div><div class="sff en" style="display:none">Submersible pump maintenance and repair</div><div class="sff tr">Sirkülasyon pompası servisi</div><div class="sff en" style="display:none">Circulation pump service</div><div class="sff tr">Hidrofor sistemi kurulumu</div><div class="sff en" style="display:none">Hydrophore system installation</div><div class="sff tr">Pompa seçim ve kapasite danışmanlığı</div><div class="sff en" style="display:none">Pump selection and capacity consultancy</div><div class="sff tr">Acil müdahale ve destek</div><div class="sff en" style="display:none">Emergency response and support</div></div></div></div>
+  </div>
+  <div class="ctab fi" style="margin-top:0"><div><div class="ctabtit tr">Ücretsiz Keşif Talep Edin</div><div class="ctabtit en" style="display:none">Request Free Inspection</div><div class="ctabsub tr">Uzman ekibimiz sorununuzu yerinde değerlendirsin</div><div class="ctabsub en" style="display:none">Let our expert team assess your problem on-site</div></div><a class="ctaphone" href="tel:05075589208">📞 0 507 558 92 08</a></div>
+</div><!-- /services -->
+
+<!-- ═══════════════ PRODUCTS PAGE ═══════════════ -->
+<div class="pg" id="pg-products">
+  <section class="svhero">
+    <div class="badge fi tr">Alarko Ürünleri</div><div class="badge fi en" style="display:none">Alarko Products</div>
+    <h1 class="stitle fi tr" style="font-size:clamp(34px,4.5vw,58px)">Yetkili Satış & <span>Servis Ürünleri</span></h1>
+    <h1 class="stitle fi en" style="font-size:clamp(34px,4.5vw,58px);display:none">Authorized Sales & <span>Service Products</span></h1>
+    <p class="sdesc fi tr">Alarko markalı ürünlerin yetkili satış ve servis noktasıyız. Orijinal ürün ve garantili montaj.</p>
+    <p class="sdesc fi en" style="display:none">We are the authorized sales and service point for Alarko branded products. Original products and guaranteed installation.</p>
+  </section>
+  <section class="sec" style="padding-top:60px">
+    <div class="products-grid">
+      <div class="pcard fi">
+        <div class="pimg p1bg">
+          <div class="pimg-glow" style="background:radial-gradient(circle at 50% 80%,rgba(20,102,212,.4),transparent 70%)"></div>
+          <img src="https://imdetekteknoloji.com/Uploads/icerik-resimleri/slide/c5cb74e8-kombi-servisi-slider.png" alt="Alarko Kombi" style="max-height:220px;max-width:90%;object-fit:contain;filter:drop-shadow(0 10px 40px rgba(0,0,0,.7))">
+        </div>
+        <div class="pbody">
+          <span class="ptag ptag-blue tr">Isıtma Sistemleri</span><span class="ptag ptag-blue en" style="display:none">Heating Systems</span>
+          <div class="ptitle">Alarko SuperFit Kombi</div>
+          <div class="pdesc tr">A++ enerji sınıfı, tam yoğuşmalı teknoloji ile maksimum enerji tasarrufu. 24 kW ve 28 kW modelleri mevcuttur.</div>
+          <div class="pdesc en" style="display:none">Maximum energy savings with A++ energy class, full condensing technology. 24 kW and 28 kW models available.</div>
+          <div class="pfeats">
+            <div class="pfeat tr">A++ Enerji Sınıfı — Düşük tüketim</div><div class="pfeat en" style="display:none">A++ Energy Class — Low consumption</div>
+            <div class="pfeat tr">Tam Yoğuşmalı Teknoloji</div><div class="pfeat en" style="display:none">Full Condensing Technology</div>
+            <div class="pfeat tr">Wi-Fi Akıllı Kontrol desteği</div><div class="pfeat en" style="display:none">Wi-Fi Smart Control support</div>
+            <div class="pfeat tr">Orijinal Alarko garantisi</div><div class="pfeat en" style="display:none">Original Alarko warranty</div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard fi">
+        <div class="pimg p2bg">
+          <div class="pimg-glow" style="background:radial-gradient(circle at 50% 80%,rgba(6,182,212,.35),transparent 70%)"></div>
+          <img src="https://imdetekteknoloji.com/Uploads/icerik-resimleri/slide/761b4426-klima-slider.jpg" alt="Alarko Flair Klima" style="max-height:220px;max-width:90%;object-fit:contain;filter:drop-shadow(0 10px 40px rgba(0,0,0,.7))">
+        </div>
+        <div class="pbody">
+          <span class="ptag ptag-cyan tr">Soğutma & Isıtma</span><span class="ptag ptag-cyan en" style="display:none">Cooling & Heating</span>
+          <div class="ptitle">Alarko Flair Klima</div>
+          <div class="pdesc tr">A+++ enerji sınıfı Inverter teknolojisiyle 4 mevsim konfor. 9.000 BTU ile 24.000 BTU arası modeller.</div>
+          <div class="pdesc en" style="display:none">4-season comfort with A+++ energy class Inverter technology. Models from 9,000 BTU to 24,000 BTU.</div>
+          <div class="pfeats">
+            <div class="pfeat tr">A+++ Enerji Sınıfı Inverter</div><div class="pfeat en" style="display:none">A+++ Energy Class Inverter</div>
+            <div class="pfeat tr">4 mevsim ısıtma ve soğutma</div><div class="pfeat en" style="display:none">4-season heating and cooling</div>
+            <div class="pfeat tr">Hava temizleme filtresi</div><div class="pfeat en" style="display:none">Air purification filter</div>
+            <div class="pfeat tr">Sessiz çalışma teknolojisi</div><div class="pfeat en" style="display:none">Quiet operation technology</div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard fi">
+        <div class="pimg p3bg" style="flex-direction:column;gap:8px">
+          <div class="pimg-glow" style="background:radial-gradient(circle at 50% 80%,rgba(240,165,0,.3),transparent 70%)"></div>
+          <div style="font-size:90px;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))">☀️</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.5);font-weight:600;letter-spacing:1px">ALARKO FOTOVOLTAIK</div>
+        </div>
+        <div class="pbody">
+          <span class="ptag ptag-gold tr">Yenilenebilir Enerji</span><span class="ptag ptag-gold en" style="display:none">Renewable Energy</span>
+          <div class="ptitle tr">Alarko Fotovoltaik Panel</div>
+          <div class="ptitle en" style="display:none">Alarko Photovoltaic Panel</div>
+          <div class="pdesc tr">11 kalite kontrol noktasından geçen yüksek verimli güneş panelleri. %25 dönüşüm verimliliği.</div>
+          <div class="pdesc en" style="display:none">High-efficiency solar panels that pass 11 quality control points. 25% conversion efficiency.</div>
+          <div class="pfeats">
+            <div class="pfeat tr">%25 Dönüşüm verimliliği</div><div class="pfeat en" style="display:none">25% Conversion efficiency</div>
+            <div class="pfeat tr">25 yıl panel ömrü garantisi</div><div class="pfeat en" style="display:none">25-year panel lifespan guarantee</div>
+            <div class="pfeat tr">11 kalite kontrol noktası</div><div class="pfeat en" style="display:none">11 quality control checkpoints</div>
+            <div class="pfeat tr">Ücretsiz fizibilite analizi</div><div class="pfeat en" style="display:none">Free feasibility analysis</div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard fi">
+        <div class="pimg p4bg" style="flex-direction:column;gap:8px">
+          <div class="pimg-glow" style="background:radial-gradient(circle at 50% 80%,rgba(34,197,94,.25),transparent 70%)"></div>
+          <div style="font-size:90px;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))">💧</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.5);font-weight:600;letter-spacing:1px">ALARKO SU SİSTEMLERİ</div>
+        </div>
+        <div class="pbody">
+          <span class="ptag ptag-green tr">Su Sistemleri</span><span class="ptag ptag-green en" style="display:none">Water Systems</span>
+          <div class="ptitle tr">Alarko Su Pompaları</div>
+          <div class="ptitle en" style="display:none">Alarko Water Pumps</div>
+          <div class="pdesc tr">60 yılı aşkın deneyimle üretilen Alarko Optima sirkülasyon pompaları ve dalgıç pompalar. ECO Design uyumlu.</div>
+          <div class="pdesc en" style="display:none">Alarko Optima circulation pumps and submersible pumps produced with over 60 years of experience. ECO Design compliant.</div>
+          <div class="pfeats">
+            <div class="pfeat tr">Alarko Optima Serisi — ECO Design</div><div class="pfeat en" style="display:none">Alarko Optima Series — ECO Design</div>
+            <div class="pfeat tr">Dalgıç & Sirkülasyon & Hidrofor</div><div class="pfeat en" style="display:none">Submersible & Circulation & Hydrophore</div>
+            <div class="pfeat tr">60 yılı aşkın üretim deneyimi</div><div class="pfeat en" style="display:none">Over 60 years of production experience</div>
+            <div class="pfeat tr">Endüstriyel & konut çözümleri</div><div class="pfeat en" style="display:none">Industrial & residential solutions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--gray);font-size:13.5px;margin-top:32px;padding-bottom:20px" class="tr">📞 Fiyat teklifi ve ürün bilgisi için bizi arayın: <strong style="color:#fff">0 507 558 92 08</strong></p>
+    <p style="text-align:center;color:var(--gray);font-size:13.5px;margin-top:32px;padding-bottom:20px" class="en" style="display:none">📞 Call for price quote and product info: <strong style="color:#fff">0 507 558 92 08</strong></p>
+  </section>
+</div><!-- /products -->
+
+<!-- ═══════════════ FAQ PAGE ═══════════════ -->
+<div class="pg" id="pg-faq">
+  <section class="sec" style="padding-top:130px">
+    <div class="sh fi">
+      <div class="badge tr">SSS</div><div class="badge en" style="display:none">FAQ</div>
+      <h2 class="stitle tr">Sıkça Sorulan <span>Sorular</span></h2>
+      <h2 class="stitle en" style="display:none">Frequently Asked <span>Questions</span></h2>
+    </div>
+    <div class="faqlist">
+      <div class="faqitem"><div class="faqq" onclick="tFaq(this)"><span class="tr">Bursa'nın her yerine geliyor musunuz?</span><span class="en" style="display:none">Do you serve all areas of Bursa?</span><span class="faqarr">+</span></div><div class="faqa"><p class="tr">Evet, Osmangazi, Nilüfer, Yıldırım başta olmak üzere tüm Bursa ilçelerine mobil ekibimizle hizmet veriyoruz. Arıza bildiriminizden itibaren en kısa sürede yanınızdayız.</p><p class="en" style="display:none">Yes, we serve all Bursa districts with our mobile team. We'll be with you as soon as possible after your fault report.</p></div></div>
+      <div class="faqitem"><div class="faqq" onclick="tFaq(this)"><span class="tr">Kredi kartı ile ödeme yapılabiliyor mu?</span><span class="en" style="display:none">Can I pay by credit card?</span><span class="faqarr">+</span></div><div class="faqa"><p class="tr">Evet, tüm servis ödemelerinizde kapıda nakit ve kredi kartı ile ödeme yapabilirsiniz. Ek ücret uygulanmaz.</p><p class="en" style="display:none">Yes, you can pay with cash or credit card at the door. No additional charges apply.</p></div></div>
+      <div class="faqitem"><div class="faqq" onclick="tFaq(this)"><span class="tr">Servis garanti süresi ne kadar?</span><span class="en" style="display:none">How long is the service warranty?</span><span class="faqarr">+</span></div><div class="faqa"><p class="tr">Tüm işçilik ve montaj çalışmalarına 1 yıl garanti veriyoruz. Orijinal parçalar için üretici firma garantisi geçerlidir.</p><p class="en" style="display:none">We provide 1 year warranty on all labor and installation works. Manufacturer warranty applies for original parts.</p></div></div>
+      <div class="faqitem"><div class="faqq" onclick="tFaq(this)"><span class="tr">Kombi bakımı ne sıklıkla yapılmalı?</span><span class="en" style="display:none">How often should boiler maintenance be done?</span><span class="faqarr">+</span></div><div class="faqa"><p class="tr">Kombinin verimli çalışması için yılda en az 1 kez, tercihen kış öncesi (Eylül–Ekim) periyodik bakım yapılmasını öneriyoruz. Bu hem enerji tasarrufu sağlar hem de ömrünü uzatır.</p><p class="en" style="display:none">For efficient boiler operation, we recommend periodic maintenance at least once a year, preferably before winter (September–October).</p></div></div>
+      <div class="faqitem"><div class="faqq" onclick="tFaq(this)"><span class="tr">Güneş enerjisi yatırımı ne zaman geri döner?</span><span class="en" style="display:none">When does solar energy investment pay back?</span><span class="faqarr">+</span></div><div class="faqa"><p class="tr">Ortalama 5–7 yıl içinde yatırımınız geri döner. Kurulum sonrası aylık elektrik faturanızda %60–80 tasarruf sağlayabilirsiniz. Ücretsiz hesaplama için bizi arayın.</p><p class="en" style="display:none">Your investment typically pays back within 5–7 years. You can save 60–80% on your monthly electricity bill. Call us for a free calculation.</p></div></div>
+      <div class="faqitem"><div class="faqq" onclick="tFaq(this)"><span class="tr">Hangi kombi markalarına servis veriyorsunuz?</span><span class="en" style="display:none">Which boiler brands do you service?</span><span class="faqarr">+</span></div><div class="faqa"><p class="tr">Alarko yetkili servisi olmakla birlikte Baymak, Demirdöküm, Vaillant, Bosch, Buderus ve diğer tüm markalara da servis veriyoruz.</p><p class="en" style="display:none">While we are Alarko authorized service, we also service Baymak, Demirdöküm, Vaillant, Bosch, Buderus and all other brands.</p></div></div>
+      <div class="faqitem"><div class="faqq" onclick="tFaq(this)"><span class="tr">Acil servis saatleri dışında müdahale oluyor mu?</span><span class="en" style="display:none">Is emergency service available outside hours?</span><span class="faqarr">+</span></div><div class="faqa"><p class="tr">Çalışma saatlerimiz Pazartesi–Cumartesi 09:00–22:00 arasıdır. Bu saatler dışında WhatsApp üzerinden iletişime geçebilirsiniz; acil durumlar için yönlendirme yapılır.</p><p class="en" style="display:none">Working hours are Monday–Saturday 09:00–22:00. You can contact via WhatsApp outside these hours; guidance is provided for emergencies.</p></div></div>
+    </div>
+  </section>
+</div><!-- /faq -->
+
+<!-- ═══════════════ CONTACT PAGE ═══════════════ -->
+<div class="pg" id="pg-contact">
+  <section class="contp">
+    <div class="sh fi">
+      <div class="badge tr">İletişim</div><div class="badge en" style="display:none">Contact</div>
+      <h1 class="stitle tr">Bize <span>Ulaşın</span></h1>
+      <h1 class="stitle en" style="display:none">Get In <span>Touch</span></h1>
+      <p class="sdesc tr">Servis talebi veya ürün bilgisi için bizi arayın ya da formu doldurun</p>
+      <p class="sdesc en" style="display:none">Call us or fill out the form for service requests or product information</p>
+    </div>
+    <div class="contg">
+      <div class="ci fi">
+        <h3 class="tr">İletişim Bilgilerimiz</h3>
+        <h3 class="en" style="display:none">Contact Information</h3>
+        <p class="tr">Haftanın 6 günü 09:00–22:00 arasında hizmetinizdeyiz</p>
+        <p class="en" style="display:none">We are at your service 6 days a week from 09:00–22:00</p>
+        <div class="iitems">
+          <div class="iitem"><div class="iiico">📍</div><div><div class="iilbl tr">Adres</div><div class="iilbl en" style="display:none">Address</div><div class="iival">Dikkaldırım Mh. 1 Lale Sk. No:14</div><div class="iisub">Osmangazi / BURSA</div></div></div>
+          <div class="iitem"><div class="iiico">📞</div><div><div class="iilbl tr">Telefon</div><div class="iilbl en" style="display:none">Phone</div><div class="iival"><a href="tel:05075589208" style="color:inherit;text-decoration:none">0 507 558 92 08</a></div></div></div>
+          <div class="iitem"><div class="iiico">💬</div><div><div class="iilbl">WhatsApp</div><div class="iival"><a href="https://wa.me/905075589208" style="color:inherit;text-decoration:none">0 507 558 92 08</a></div></div></div>
+          <div class="iitem"><div class="iiico">✉️</div><div><div class="iilbl">E-Posta</div><div class="iival"><a href="mailto:info@imdetekteknoloji.com" style="color:inherit;text-decoration:none">info@imdetekteknoloji.com</a></div></div></div>
+          <div class="iitem"><div class="iiico">🕐</div><div><div class="iilbl tr">Çalışma Saatleri</div><div class="iilbl en" style="display:none">Working Hours</div><div class="iival tr">Pzt – Cts: 09:00 – 22:00</div><div class="iival en" style="display:none">Mon – Sat: 09:00 – 22:00</div><div class="iisub tr">Pazar: Kapalı</div><div class="iisub en" style="display:none">Sunday: Closed</div></div></div>
+        </div>
+      </div>
+      <div class="cf fi">
+        <div class="cft tr">Servis Talebi Oluştur</div>
+        <div class="cft en" style="display:none">Create Service Request</div>
+        <div class="cfs tr">En kısa sürede ekibimiz sizi arayacaktır</div>
+        <div class="cfs en" style="display:none">Our team will call you back as soon as possible</div>
+        <div class="frow">
+          <div class="fg2"><label class="tr">Ad Soyad</label><label class="en" style="display:none">Full Name</label><input type="text" placeholder="Adınız Soyadınız"></div>
+          <div class="fg2"><label class="tr">Telefon</label><label class="en" style="display:none">Phone</label><input type="tel" placeholder="0 5XX XXX XX XX"></div>
+        </div>
+        <div class="fg2"><label>E-Posta</label><input type="email" placeholder="email@ornek.com"></div>
+        <div class="fg2">
+          <label class="tr">Hizmet Türü</label><label class="en" style="display:none">Service Type</label>
+          <select><option>Kombi Servisi</option><option>Klima Servisi</option><option>Güneş Enerji Sistemleri</option><option>Su Pompaları</option><option>Ürün Satış Talebi</option><option>Diğer</option></select>
+        </div>
+        <div class="fg2"><label class="tr">Mesajınız</label><label class="en" style="display:none">Message</label><textarea placeholder="Sorununuzu veya talebinizi kısaca açıklayın..."></textarea></div>
+        <button class="subbtn" onclick="submitForm(this)"><span class="tr">Talep Gönder →</span><span class="en" style="display:none">Send Request →</span></button>
+      </div>
+    </div>
+  </section>
+  <div class="mapsec">
+    <div class="mapbox">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3042!2d29.0601!3d40.1886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ca15d5b61df9d9%3A0x0!2zNDDCsDExJzE5LjAiTiAyOcKwMDMnMzYuNCJF!5e0!3m2!1str!2str!4v1710000000" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</div><!-- /contact -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footg">
+    <div>
+      <div class="logo"><div class="li">İT</div><div><div class="lt">İmdetek Teknoloji</div><div class="ls">Alarko Yetkili Servis — Bursa</div></div></div>
+      <p class="footdesc tr">Bursa'da iklimlendirme ve enerji sistemlerinde uzman, güvenilir ve hızlı teknik servis. Alarko yetkili satış ve servis noktası.</p>
+      <p class="footdesc en" style="display:none">Expert, reliable and fast technical service in air conditioning and energy systems in Bursa. Alarko authorized sales and service point.</p>
+      <div class="footsoc">
+        <a class="fsoc" href="#">📘</a>
+        <a class="fsoc" href="#">📸</a>
+        <a class="fsoc" href="https://wa.me/905075589208">💬</a>
+      </div>
+    </div>
+    <div class="fcol">
+      <h4 class="tr">Sayfalar</h4><h4 class="en" style="display:none">Pages</h4>
+      <a onclick="goTo('home')" class="tr">Anasayfa</a><a onclick="goTo('home')" class="en" style="display:none">Home</a>
+      <a onclick="goTo('about')" class="tr">Hakkımızda</a><a onclick="goTo('about')" class="en" style="display:none">About Us</a>
+      <a onclick="goTo('services')" class="tr">Hizmetler</a><a onclick="goTo('services')" class="en" style="display:none">Services</a>
+      <a onclick="goTo('products')" class="tr">Ürünler</a><a onclick="goTo('products')" class="en" style="display:none">Products</a>
+      <a onclick="goTo('contact')" class="tr">İletişim</a><a onclick="goTo('contact')" class="en" style="display:none">Contact</a>
+    </div>
+    <div class="fcol">
+      <h4 class="tr">Hizmetler</h4><h4 class="en" style="display:none">Services</h4>
+      <a onclick="goTo('services')" class="tr">Kombi Servisi</a>
+      <a onclick="goTo('services')" class="tr">Klima Servisi</a>
+      <a onclick="goTo('services')" class="tr">Güneş Enerjisi</a>
+      <a onclick="goTo('services')" class="tr">Su Pompaları</a>
+      <a onclick="goTo('services')" class="en" style="display:none">Boiler Service</a>
+      <a onclick="goTo('services')" class="en" style="display:none">AC Service</a>
+    </div>
+    <div class="fcol">
+      <h4 class="tr">İletişim</h4><h4 class="en" style="display:none">Contact</h4>
+      <a href="tel:05075589208">📞 0 507 558 92 08</a>
+      <a href="https://wa.me/905075589208">💬 WhatsApp</a>
+      <a href="mailto:info@imdetekteknoloji.com" style="font-size:12px">✉️ info@imdetekteknoloji.com</a>
+      <a>📍 Osmangazi / BURSA</a>
+      <a class="tr">🕐 Pzt-Cts 09:00-22:00</a>
+    </div>
+  </div>
+  <div class="footbot">
+    <span>© 2026 İmdetek Teknoloji. <span class="tr">Tüm Hakları Saklıdır.</span><span class="en" style="display:none">All Rights Reserved.</span></span>
+    <span>Alarko Carrier Yetkili Servis & Satış | Bursa</span>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a class="wa" href="https://wa.me/905075589208" target="_blank">💬</a>
+
+<!-- CHATBOT -->
+<div class="chatbub">
+  <button class="chatog" onclick="tChat()">🤖<span class="cnot">1</span></button>
+</div>
+<div class="chatwin" id="chatWin">
+  <div class="chdr">
+    <div class="chav">🤖</div>
+    <div><div class="chnm tr">İmdetek AI Destek</div><div class="chnm en" style="display:none">İmdetek AI Support</div><div class="chst tr">Çevrimiçi</div><div class="chst en" style="display:none">Online</div></div>
+    <button class="chcl" onclick="tChat()">✕</button>
+  </div>
+  <div class="chmsgs" id="chMsgs">
+    <div class="msg bot"><div class="mb tr">Merhaba! 👋 İmdetek Teknoloji AI Asistanıyım. Alarko kombi, klima, güneş enerjisi veya su pompası konularında yardımcı olmaya hazırım!</div><div class="mb en" style="display:none">Hello! 👋 I'm İmdetek Technology's AI Assistant. Ready to help with Alarko boilers, air conditioning, solar energy or water pumps!</div><div class="mt">Şimdi</div></div>
+  </div>
+  <div class="qbtns" id="qBtns">
+    <button class="qb tr" onclick="qAsk('Kombi bakımı ne zaman yapılmalı?')">🔥 Kombi</button>
+    <button class="qb en" style="display:none" onclick="qAsk('When should boiler maintenance be done?')">🔥 Boiler</button>
+    <button class="qb tr" onclick="qAsk('Klima gaz dolumu gerekiyor mu?')">❄️ Klima</button>
+    <button class="qb en" style="display:none" onclick="qAsk('Does AC need gas refill?')">❄️ AC</button>
+    <button class="qb tr" onclick="qAsk('Güneş enerjisi maliyeti nedir?')">☀️ GES</button>
+    <button class="qb en" style="display:none" onclick="qAsk('What is solar energy cost?')">☀️ Solar</button>
+    <button class="qb tr" onclick="qAsk('Randevu almak istiyorum')">📅 Randevu</button>
+    <button class="qb en" style="display:none" onclick="qAsk('I want to book an appointment')">📅 Book</button>
+  </div>
+  <div class="chinpa">
+    <textarea class="chinp" id="chInp" placeholder="Sorunuzu yazın..." rows="1" onkeydown="chKey(event)" oninput="chResize(this)"></textarea>
+    <button class="chsnd" onclick="sendMsg()">➤</button>
+  </div>
 </div>
 
 <script>
-    // SLIDER MOTORU
-    let cur = 0;
-    const slides = document.querySelectorAll('.slide');
-    setInterval(() => {
-        slides[cur].classList.remove('active');
-        cur = (cur + 1) % slides.length;
-        slides[cur].classList.add('active');
-    }, 4000);
+// ── ROUTER ──
+function goTo(p){
+  document.querySelectorAll('.pg').forEach(x=>x.classList.remove('act'));
+  document.getElementById('pg-'+p).classList.add('act');
+  document.querySelectorAll('.nl a').forEach(x=>x.classList.remove('act'));
+  const na=document.getElementById('na-'+p);if(na)na.classList.add('act');
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(initObs,100);
+}
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>40));
+function toggleMob(){document.getElementById('mob').classList.toggle('op')}
 
-    // CHATBOT MOTORU
-    function toggleChat() { document.getElementById('chat-win').classList.toggle('open'); }
-    function sendChat() {
-        const inp = document.getElementById('chatIn');
-        const m = document.getElementById('msgs');
-        if(!inp.value) return;
-        m.innerHTML += `<div style="text-align:right; color:var(--gold); margin-top:10px;">${inp.value}</div>`;
-        const t = inp.value.toLowerCase();
-        inp.value = '';
+// ── LANG ──
+let lang='tr';
+function toggleLang(){
+  lang=lang==='tr'?'en':'tr';
+  document.getElementById('lbll').textContent=lang==='tr'?'🇬🇧 EN':'🇹🇷 TR';
+  document.querySelectorAll('.tr').forEach(e=>e.style.display=lang==='tr'?'':'none');
+  document.querySelectorAll('.en').forEach(e=>e.style.display=lang==='en'?'':'none');
+  document.getElementById('chInp').placeholder=lang==='tr'?'Sorunuzu yazın...':'Type your question...';
+  document.documentElement.lang=lang;
+}
 
-        setTimeout(() => {
-            let r = "Size yardımcı olabilmemiz için 0507 558 92 08 numaralı hattımızı arayabilirsiniz.";
-            if(t.includes('adres') || t.includes('nerede')) r = "Merkezimiz Osmangazi Dikkaldırım'dadır. (Lale Sk. No:14) 📍";
-            if(t.includes('saat') || t.includes('açık')) r = "Hafta içi 09:00 - 19:00 arası hizmet vermekteyiz. ⏰";
-            if(t.includes('kombi')) r = "Alarko yoğuşmalı kombilerde yetkili bayi satış ve servis desteğimiz mevcuttur. 🔥";
-            if(t.includes('klima')) r = "Alarko Flair klimalar ile A+++ enerji tasarrufu sağlayabilirsiniz. ❄️";
-            
-            m.innerHTML += `<div style="margin-top:10px; border-left: 2px solid var(--gold); padding-left: 10px;">${r}</div>`;
-            m.scrollTop = m.scrollHeight;
-        }, 500);
-    }
+// ── SLIDER ──
+let curSlide=0,slTotal=4,slTimer,slProg=0,slInterval=6000;
+function goSlide(n){
+  document.querySelectorAll('.slide').forEach((s,i)=>{s.classList.toggle('active',i===n)});
+  document.querySelectorAll('.dot').forEach((d,i)=>{d.classList.toggle('act',i===n)});
+  curSlide=n;slProg=0;
+}
+function nextSlide(){goSlide((curSlide+1)%slTotal)}
+function prevSlide(){goSlide((curSlide-1+slTotal)%slTotal)}
+function startSlider(){
+  slTimer=setInterval(()=>{
+    slProg+=100;
+    document.getElementById('slProg').style.width=(slProg/slInterval*100)+'%';
+    if(slProg>=slInterval){document.getElementById('slProg').style.width='0%';slProg=0;nextSlide();}
+  },100);
+}
+startSlider();
+// pause on hover
+document.getElementById('slider').addEventListener('mouseenter',()=>clearInterval(slTimer));
+document.getElementById('slider').addEventListener('mouseleave',()=>{slProg=0;startSlider()});
+// touch swipe
+let tx=0;
+document.getElementById('slider').addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+document.getElementById('slider').addEventListener('touchend',e=>{const dx=tx-e.changedTouches[0].clientX;if(dx>50)nextSlide();else if(dx<-50)prevSlide()},{passive:true});
+
+// ── FADE ──
+function initObs(){
+  const obs=new IntersectionObserver((es)=>{
+    es.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('vis'),i*70)});
+  },{threshold:.08});
+  document.querySelectorAll('.fi').forEach(e=>obs.observe(e));
+}
+initObs();
+
+// ── FAQ ──
+function tFaq(el){
+  const item=el.parentElement;
+  document.querySelectorAll('.faqitem').forEach(f=>{if(f!==item)f.classList.remove('open')});
+  item.classList.toggle('open');
+}
+
+// ── CHATBOT ──
+let chatOpen=false,hist=[];
+const SYS=`Sen İmdetek Teknoloji'nin AI müşteri destek asistanısın. Alarko yetkili servisi olarak Bursa Osmangazi'de kombi, klima (Alarko Flair), güneş enerji sistemleri (Alarko Fotovoltaik) ve su pompaları (Alarko Optima) alanında hizmet veriyoruz.
+İletişim: 0 507 558 92 08, WhatsApp: 905075589208, info@imdetekteknoloji.com. Adres: Dikkaldırım Mh. 1 Lale Sk. No:14 Osmangazi BURSA. Çalışma: Pzt-Cts 09:00-22:00. Kapıda kredi kartı kabul edilir. Tüm Bursa ilçelerine hizmet. 1 yıl işçilik garantisi.
+Türkçe ve İngilizce sorulara kısa, samimi ve yardımsever cevaplar ver. Teknik sorulara bilgi ver. Servis için telefon veya WhatsApp'a yönlendir. Emoji kullan.`;
+
+function tChat(){
+  chatOpen=!chatOpen;
+  document.getElementById('chatWin').classList.toggle('op',chatOpen);
+  document.querySelector('.cnot').style.display=chatOpen?'none':'';
+  if(chatOpen)document.getElementById('chInp').focus();
+}
+function qAsk(q){document.getElementById('chInp').value=q;sendMsg();}
+async function sendMsg(){
+  const inp=document.getElementById('chInp');
+  const msg=inp.value.trim();if(!msg)return;
+  inp.value='';inp.style.height='auto';
+  document.getElementById('qBtns').style.display='none';
+  addMsg('usr',msg);hist.push({role:'user',content:msg});
+  const td=addTyping();
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:SYS,messages:hist})});
+    const d=await r.json();td.remove();
+    const rep=d.content?.[0]?.text||(lang==='tr'?'⚠️ Bağlantı hatası. Lütfen arayın: 0 507 558 92 08':'⚠️ Connection error. Please call: 0 507 558 92 08');
+    addMsg('bot',rep);hist.push({role:'assistant',content:rep});
+  }catch(e){td.remove();addMsg('bot','⚠️ Hata. Lütfen arayın: 📞 0 507 558 92 08');}
+}
+function addMsg(role,text){
+  const msgs=document.getElementById('chMsgs');
+  const d=document.createElement('div');d.className='msg '+role;
+  const now=new Date().toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit'});
+  d.innerHTML=`<div class="mb">${text.replace(/\n/g,'<br>')}</div><div class="mt">${now}</div>`;
+  msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d;
+}
+function addTyping(){
+  const msgs=document.getElementById('chMsgs');
+  const d=document.createElement('div');d.className='tdots';
+  d.innerHTML='<span></span><span></span><span></span>';
+  msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d;
+}
+function chKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg();}}
+function chResize(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,90)+'px';}
+
+// ── FORM ──
+function submitForm(btn){
+  const orig=btn.innerHTML;
+  btn.innerHTML='<span>✅ Talebiniz Alındı! En kısa sürede aranacaksınız.</span>';
+  btn.style.background='linear-gradient(135deg,#059669,#10b981)';
+  setTimeout(()=>{btn.innerHTML=orig;btn.style.background='';},4000);
+}
+
+// ── HASH ROUTING ──
+const h=location.hash.replace('#','');
+if(['about','services','products','faq','contact'].includes(h))goTo(h);
 </script>
-
 </body>
 </html>
